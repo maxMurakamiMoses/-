@@ -16,24 +16,14 @@ export default async function Blog() {
   );
 
   return (
-    <>
-      <div className="mx-auto w-full max-w-screen-xl px-2.5 lg:px-20 mt-24">
-        <div className="text-center py-16">
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Articles
-          </h1>
-          <p className="mt-4 text-xl text-muted-foreground">
-            Latest news and updates from {siteConfig.name}
-          </p>
-        </div>
-      </div>
-      <div className="min-h-[50vh] bg-muted  backdrop-blur-lg">
+    <div className='bg-muted'>
+      <div className="min-h-[50vh] backdrop-blur-lg">
         <div className="mx-auto grid w-full max-w-screen-xl grid-cols-1 gap-8 px-2.5 py-10 lg:px-20 lg:grid-cols-3">
           {articles.map((data, idx) => (
             <BlogCard key={data.slug} data={data} priority={idx <= 1} />
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
