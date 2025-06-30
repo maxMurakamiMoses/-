@@ -1,5 +1,5 @@
 {
-  "name": "mobile-magicui",
+  "name": "オナサムライ",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,7 +19,7 @@
     "date-fns": "^4.1.0",
     "framer-motion": "^11.3.21",
     "lucide-react": "^0.417.0",
-    "next": "14.2.7",
+    "next": "^15.3.4",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-day-picker": "^9.7.0",
