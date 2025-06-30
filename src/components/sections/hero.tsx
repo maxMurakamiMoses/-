@@ -87,7 +87,7 @@ export function Hero() {
             </motion.div>
           </div>
           <div className="flex items-center justify-center gap-2">
-        <div className="flex gap-4 pb-4 -mt-10">
+        <div className="flex gap-4 pb-4 pt-64">
           {[...Array(5)].map((_, i) => (
             <span key={i} className="text-6xl">⭐</span>
           ))}
