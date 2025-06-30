@@ -18,10 +18,17 @@ export default async function Blog() {
   return (
     <div className='bg-muted'>
       <div className="min-h-[50vh] backdrop-blur-lg">
-        <div className="mx-auto w-full max-w-screen-xl px-2.5 py-10 lg:px-20">
+        <div className="mx-auto w-full max-w-6xl px-10">
           <h2 className="text-2xl font-bold mb-6">Popular Articles</h2>
-          {/* Top section: 2 columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10 min-h-[500px]">
+          {/* Top section: 2 columns on lg+, stacked BlogCard on mobile */}
+          {/* Mobile: all BlogCard stacked */}
+          <div className="grid grid-cols-1 gap-8 mb-10 min-h-[500px] lg:hidden">
+            {articles.slice(0, 4).map((data, idx) => (
+              <BlogCard key={data.slug} data={data} priority={idx === 0} />
+            ))}
+          </div>
+          {/* Desktop: special layout */}
+          <div className="hidden lg:grid grid-cols-2 gap-8 mb-10 min-h-[500px]">
             {/* Large card on the left */}
             <div className="h-full min-h-[500px]">
               {articles[0] && (
