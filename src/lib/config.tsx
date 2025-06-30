@@ -147,7 +147,7 @@ export const siteConfig = {
       question: "What if I relapse while using クイッター?",
       answer: (
         <span>
-          Relapses are a normal part of the recovery process. クイッター doesn't judge or shame you - instead, 
+          Relapses are a normal part of the recovery process. クイッター doesn&apos;t judge or shame you - instead, 
           it helps you learn from setbacks and get back on track. The app provides immediate support and 
           strategies to help you continue your journey.
         </span>

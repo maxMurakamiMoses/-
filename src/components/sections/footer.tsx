@@ -5,6 +5,7 @@ import {
   ChevronRightIcon,
 } from "@radix-ui/react-icons";
 import { Icons } from "@/components/icons";
+import Image from "next/image";
 
 interface Icon {
   icon: JSX.Element;
@@ -80,15 +81,19 @@ export function Footer() {
       </div>
       <div className="flex flex-col justify-between gap-y-10 border-t border-dashed py-10 md:flex-row md:items-center">
         <div className="flex items-center gap-x-2">
-          <img
+          <Image
             className="cursor-pointer rounded-md border border-neutral-700"
             src="https://cdn.magicui.design/playstore-download.png"
-            alt="playstore"
+            alt="Download on Google Play Store"
+            width={120}
+            height={40}
           />
-          <img
+          <Image
             className="cursor-pointer rounded-md border border-neutral-700"
             src="https://cdn.magicui.design/ios-download.png"
-            alt="ios"
+            alt="Download on Apple App Store"
+            width={120}
+            height={40}
           />
         </div>
 

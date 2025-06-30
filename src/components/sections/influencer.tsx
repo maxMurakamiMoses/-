@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Influencer() {
   return (
     <section className="py-14 bg-purple-900 dark:bg-purple-950">
@@ -12,9 +14,11 @@ export function Influencer() {
           {/* Card 1 */}
           <div className="bg-purple-800 dark:bg-purple-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-purple-700">
             <div className="flex items-center space-x-5 mb-6">
-              <img
+              <Image
                 src="/profilepic.jpg"
                 alt="Influencer 1"
+                width={80}
+                height={80}
                 className="w-20 h-20 rounded-full object-cover"
               />
               <div>
@@ -35,16 +39,18 @@ export function Influencer() {
               </div>
             </div>
             <p className="text-purple-100 text-base leading-relaxed">
-              "The interface is intuitive and the features are exactly what I needed!"
+              &quot;The interface is intuitive and the features are exactly what I needed!&quot;
             </p>
           </div>
 
           {/* Card 2 */}
           <div className="bg-purple-800 dark:bg-purple-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-purple-700">
             <div className="flex items-center space-x-5 mb-6">
-              <img
+              <Image
                 src="/profilepic.jpg"
                 alt="Influencer 2"
+                width={80}
+                height={80}
                 className="w-20 h-20 rounded-full object-cover"
               />
               <div>
@@ -65,16 +71,18 @@ export function Influencer() {
               </div>
             </div>
             <p className="text-purple-100 text-base leading-relaxed">
-              "This stands out for its simplicity and effectiveness. Highly recommend!"
+              &quot;This stands out for its simplicity and effectiveness. Highly recommend!&quot;
             </p>
           </div>
 
           {/* Card 3 */}
           <div className="bg-purple-800 dark:bg-purple-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-purple-700">
             <div className="flex items-center space-x-5 mb-6">
-              <img
+              <Image
                 src="/profilepic.jpg"
                 alt="Influencer 3"
+                width={80}
+                height={80}
                 className="w-20 h-20 rounded-full object-cover"
               />
               <div>
@@ -95,7 +103,7 @@ export function Influencer() {
               </div>
             </div>
             <p className="text-purple-100 text-base leading-relaxed">
-              "I've tried countless apps, but this one actually helps me stay organized."
+              &quot;I&apos;ve tried countless apps, but this one actually helps me stay organized.&quot;
             </p>
           </div>
         </div>

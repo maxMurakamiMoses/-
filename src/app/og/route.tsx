@@ -78,6 +78,7 @@ export async function GET(req: NextRequest) {
         <img
           src={`${siteConfig.url}/iphone.png`}
           width={900}
+          alt="iPhone mockup"
           style={{
             position: "relative",
             bottom: -160,

@@ -4,6 +4,7 @@ import Marquee from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -67,7 +68,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image className="rounded-full" width={32} height={32} alt={`${name}'s profile picture`} src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium text-white">
             {name}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export function Testimonials() {
   const testimonials = [
@@ -95,7 +96,7 @@ export function Testimonials() {
       <div className="max-w-6xl mx-auto px-10">
         <div className="text-left mb-8">
           <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
-            Thousands of people vouch for our porn addiction app,<br /><span className="text-purple-700"> and there's a good reason why.</span>
+            Thousands of people vouch for our porn addiction app,<br /><span className="text-purple-700"> and there&apos;s a good reason why.</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Peoples lives have been changed forever with the use of our app, leading to unspeakable amounts of gratitude.
@@ -116,10 +117,12 @@ export function Testimonials() {
               >
                 <div className="px-4 py-5 sm:p-6 flex-grow">
                   <div className="flex items-center mb-4">
-                    <img
+                    <Image
                       className="h-10 w-10 rounded-full object-cover"
                       src={testimonial.image}
                       alt={testimonial.name}
+                      width={40}
+                      height={40}
                     />
                     <div className="ml-3">
                       <h3 className="text-lg font-medium text-foreground">

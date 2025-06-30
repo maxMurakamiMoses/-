@@ -4,6 +4,7 @@ import { Icons } from "@/components/icons";
 import { Section } from "@/components/section";
 import { easeInOutCubic } from "@/lib/animation";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -53,27 +54,37 @@ export function Hero() {
               Join 100,000+ men on a mission to quit porn forever and move on with their lives
             </motion.p>
             <div className="flex justify-center mb-16">
-            <img
+            <Image
               className="cursor-pointer rounded-md border border-neutral-900 dark:border-neutral-700"
               src="https://cdn.magicui.design/playstore-download.png"
-              alt="playstore"
+              alt="Download on Google Play Store"
+              width={120}
+              height={40}
             />
-            <img
+            <Image
               className="cursor-pointer rounded-md border border-neutral-900 dark:border-neutral-700"
               src="https://cdn.magicui.design/ios-download.png"
-              alt="ios"
+              alt="Download on Apple App Store"
+              width={120}
+              height={40}
             />
             </div>
           </div>
           <div className="flex justify-center h-auto sm:h-[1000px] select-none -mt-72">
-            <motion.img
-              src="/landing.avif"
-              alt="Landing"
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
               className="w-full max-w-8xl h-auto object-contain flex-shrink-0"
-            />
+            >
+              <Image
+                src="/landing.avif"
+                alt="Landing"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </motion.div>
           </div>
           <div className="flex items-center justify-center gap-2">
         <div className="flex gap-4 pb-4 -mt-10">

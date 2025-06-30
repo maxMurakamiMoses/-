@@ -1,5 +1,4 @@
 import { Benefits } from "@/components/sections/benefits";
-import { BentoGrid } from "@/components/sections/bento";
 import { CTA } from "@/components/sections/cta";
 import { FAQ } from "@/components/sections/faq";
 import { FeatureHighlight } from "@/components/sections/feature-highlight";

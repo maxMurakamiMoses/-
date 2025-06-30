@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface FeatureProps {
   title: string;
@@ -77,9 +78,11 @@ function Feature({
         </div>
       </motion.div>
       <div className="w-full lg:w-1/2">
-        <img
+        <Image
           src={imageSrc}
           alt={title}
+          width={300}
+          height={600}
           className="w-full max-w-[300px] mx-auto"
         />
       </div>

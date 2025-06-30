@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
+import Image from "next/image";
 
 export function FinalCTA() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -25,9 +26,11 @@ export function FinalCTA() {
           {/* Left Column - Profile Picture */}
           <div className="flex justify-center md:justify-end">
             <div className="w-96 h-96 rounded-2xl overflow-hidden">
-              <img
+              <Image
                 src="/profilepic.jpg"
                 alt="Profile"
+                width={384}
+                height={384}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -36,7 +39,7 @@ export function FinalCTA() {
           {/* Right Column - Text and Button */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-6">
-              It's an awkward topic,{" "}
+              It&apos;s an awkward topic,{" "}
               <span className="text-gray-400">but not one to ignore.</span>
             </h2>
             <Button className="bg-white text-white hover:bg-gray-100 rounded-full px-8 py-3 text-lg font-medium">
