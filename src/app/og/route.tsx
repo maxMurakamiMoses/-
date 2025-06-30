@@ -75,16 +75,17 @@ export async function GET(req: NextRequest) {
           </div>
         </div>
 
-        <img
-          src={`${siteConfig.url}/iphone.png`}
-          width={900}
-          alt="iPhone mockup"
+        <div
           style={{
             position: "relative",
             bottom: -160,
-            aspectRatio: "auto",
+            width: 900,
+            height: 600,
+            backgroundImage: `url(${siteConfig.url}/iphone.png)`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
             border: "4px solid lightgray",
-            background: "lightgray",
             borderRadius: 20,
             zIndex: 1,
           }}

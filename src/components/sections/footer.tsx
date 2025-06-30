@@ -50,11 +50,11 @@ export function Footer() {
             <Icons.logo className="w-auto h-full" />
           </div>
             <h1 className="text-xl font-bold text-white">
-            クイッター
+            オナサムライ
             </h1>
           </a>
           <p className="tracking-tight text-white">
-          The Flagship Porn Addiction App to Quit Porn.
+          ポルノをやめるための、最強のポルノ依存対策アプリ。
           </p>
           <p className="text-sm tracking-tight text-neutral-400 sm:text-center">
             All rights reserved.

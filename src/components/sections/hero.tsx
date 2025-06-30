@@ -43,7 +43,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5, ease: easeInOutCubic }}
               className="text-7xl font-bold mb-4 tracking-tighter"
             >
-              Quit Porn For Life <br />With クイッター
+              Quit Porn For Life <br />With オナサムライ
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}

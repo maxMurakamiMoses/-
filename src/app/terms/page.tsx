@@ -26,7 +26,7 @@ export default function TermsAndConditions() {
             <div>
               <h2 className="text-2xl font-bold mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-300 mb-4">
-                By accessing and using クイッター ("the App"), you accept and agree to be bound by the
+                By accessing and using クイッター (&ldquo;the App&rdquo;), you accept and agree to be bound by the
                 terms and provision of this agreement.
               </p>
               <p className="text-gray-300">
@@ -54,7 +54,7 @@ export default function TermsAndConditions() {
             <div>
               <h2 className="text-2xl font-bold mb-4">3. Disclaimer</h2>
               <p className="text-gray-300">
-                The materials within クイッター are provided on an 'as is' basis. We make no
+                The materials within クイッター are provided on an &apos;as is&apos; basis. We make no
                 warranties, expressed or implied, and hereby disclaim and negate all other warranties
                 including without limitation, implied warranties or conditions of merchantability,
                 fitness for a particular purpose, or non-infringement of intellectual property.
