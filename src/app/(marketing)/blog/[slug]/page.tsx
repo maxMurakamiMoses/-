@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -59,7 +61,15 @@ export default async function Blog({
     notFound();
   }
   return (
-    <section id="blog">
+    <section id="blog" className="bg-black min-h-screen">
+      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8">
+        <div className="pt-8">
+          <Link href="/blog" className="text-white hover:underline text-sm font-medium flex items-center gap-1">
+            <ChevronLeft className="w-4 h-4" />
+            Back to Blogs
+          </Link>
+        </div>
+      </div>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -82,7 +92,7 @@ export default async function Blog({
           }),
         }}
       />
-      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8 space-y-4 my-12">
+      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8 space-y-4 my-12 text-white">
         <Suspense
           fallback={
             <div className="mb-8 w-full h-64 bg-gray-200 animate-pulse rounded-lg"></div>
@@ -101,16 +111,16 @@ export default async function Blog({
           )}
         </Suspense>
         <div className="flex flex-col">
-          <h1 className="title font-medium text-3xl tracking-tighter">
+          <h1 className="title font-medium text-3xl tracking-tighter text-white">
             {post.metadata.title}
           </h1>
         </div>
-        <div className="flex justify-between items-center text-sm">
+        <div className="flex justify-between items-center text-sm text-white">
           <Suspense fallback={<p className="h-5" />}>
             <div className="flex items-center space-x-2">
               <time
                 dateTime={post.metadata.publishedAt}
-                className="text-sm text-gray-500"
+                className="text-sm text-white"
               >
                 {formatDate(post.metadata.publishedAt)}
               </time>
@@ -121,11 +131,12 @@ export default async function Blog({
           <Author
             twitterUsername={post.metadata.author}
             name={post.metadata.author}
-            image={"/author.jpg"}
+            image={post.metadata.authorImage || "/author.jpg"}
+            className="text-white"
           />
         </div>
         <article
-          className="prose dark:prose-invert mx-auto max-w-full"
+          className="prose dark:prose-invert prose-[color:white] prose-a:text-white mx-auto max-w-full text-white"
           dangerouslySetInnerHTML={{ __html: post.source }}
         ></article>
       </div>
