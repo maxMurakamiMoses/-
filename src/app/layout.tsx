@@ -40,6 +40,7 @@ export default function RootLayout({
           enableSystem={false}
         >
           {children}
+          <Analytics />
           <ThemeToggle />
           <TailwindIndicator />
         </ThemeProvider>
