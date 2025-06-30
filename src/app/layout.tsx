@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 import { fontSans } from "@/lib/fonts";
 import { cn, constructMetadata } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 export const metadata: Metadata = constructMetadata({
@@ -32,6 +33,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

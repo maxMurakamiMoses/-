@@ -19,7 +19,7 @@ export default async function Blog() {
     <div className='bg-muted'>
       <div className="min-h-[50vh] backdrop-blur-lg">
         <div className="mx-auto w-full max-w-6xl px-10">
-          <h2 className="text-2xl font-bold mb-6">Popular Articles</h2>
+          <h2 className="text-2xl font-bold mb-6">人気記事</h2>
           {/* Top section: 2 columns on lg+, stacked BlogCard on mobile */}
           {/* Mobile: all BlogCard stacked */}
           <div className="grid grid-cols-1 gap-8 mb-10 min-h-[500px] lg:hidden">
@@ -49,7 +49,7 @@ export default async function Blog() {
             </div>
           </div>
           {/* Standard 3-column grid for the rest */}
-          <h2 className="text-xl font-bold mb-4">All Articles</h2>
+          <h2 className="text-2xl font-bold mb-4">すべての記事</h2>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {articles.slice(4).map((data) => (
               <BlogCard key={data.slug} data={data} />
