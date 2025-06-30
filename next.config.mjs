@@ -4,7 +4,8 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "localhost" }, 
       { hostname: "randomuser.me" },
-      { hostname: "cdn.magicui.design" }
+      { hostname: "cdn.magicui.design" },
+      { hostname: "avatar.vercel.sh" }
     ],
   },
 };
