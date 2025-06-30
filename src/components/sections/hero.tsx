@@ -22,7 +22,7 @@ export function Hero() {
               className="mb-16 relative z-20"
               style={{ transformOrigin: "top" }}
             >
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xl font-bold p-4 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
+              <div className="bg-blue-600 text-white text-xl font-bold p-4 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
                 <Icons.logo className="w-auto h-[40px]" />
               </div>
             </motion.div>
@@ -30,9 +30,9 @@ export function Hero() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
-              className="absolute inset-0 top-20 z-10"
+              className="absolute inset-0 top-20 z-10 text-sm"
             >
-              クイッター
+              オナサムライ
             </motion.div>
           </div>
 

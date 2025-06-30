@@ -138,9 +138,9 @@ export function CTA() {
           </div>
           <div className="z-10 mt-4 flex flex-col items-center text-center text-white">
             <h1 className="text-3xl font-bold lg:text-4xl">
-              Ready to finally quit?
+            ついにやめる準備できた？
             </h1>
-            <p className="mt-2 max-w-lg">Start your journey with our porn addiction app and become the best version of yourself. The benefits feel great ~ The クイッター Team </p>
+            <p className="mt-2 max-w-lg">刀に頼らず己を鍛えよ</p>
             <Link
               href="#"
               className={cn(

@@ -1,11 +1,13 @@
 import { LiaHotdogSolid } from "react-icons/lia";
 import { GiBananaPeeled } from "react-icons/gi";
+import { GiSamuraiHelmet } from "react-icons/gi";
+
 
 
 type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
-  logo: (props: IconProps) => <GiBananaPeeled {...props} />,
+  logo: (props: IconProps) => <GiSamuraiHelmet {...props} />,
   twitter: (props: IconProps) => (
     <svg
       {...props}

@@ -145,7 +145,7 @@ export function FeatureHighlight() {
     >
       <div className="text-center mb-16 ">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          How クイッター Helps You <br /> Overcome
+          How オナサムライ Helps You <br /> Overcome
           Porn Addiction
         </h2>
        

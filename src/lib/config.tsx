@@ -10,8 +10,8 @@ import {
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig = {
-  name: "クイッター",
-  description: "Quit Porn For Life With クイッター.",
+  name: "オナサムライ",
+  description: "一生ポルノをやめよう",
   cta: "Download",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
