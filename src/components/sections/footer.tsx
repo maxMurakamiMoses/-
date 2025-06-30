@@ -22,9 +22,9 @@ type FooterLink = { id: number; title: string; url: string };
 
 const footerLinks: FooterLink[][] = [
   [
-    { id: 1, title: "About", url: "#hero" },
+    { id: 1, title: "About", url: "/#hero" },
     { id: 2, title: "Contact", url: "mailto:inquiry@オナサムライ.com" },
-    { id: 3, title: "Blog", url: "#" },
+    { id: 3, title: "Blog", url: "/blog" },
   ],
   [
     { id: 7, title: "Support", url: "mailto:support@オナサムライ.com" },

@@ -3,10 +3,10 @@ import Image from "next/image";
 export function Influencer() {
   return (
     <section className="py-14 bg-purple-900 dark:bg-purple-950">
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-5xl mx-auto px-8">
         <div className=" mb-16">
-          <h2 className="text-5xl font-bold text-white mb-6">
-          Vouched by your favourite influencers
+          <h2 className="text-4xl font-bold text-white mb-2">
+          あなたのお気に入りのインフルエンサーもおすすめ
           </h2>
         </div>
         
