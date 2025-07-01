@@ -4,3 +4,4 @@ id,name,email,category,value,timestamp
 3,Bob Johnson,bob@example.com,user,345.67,2024-01-01T10:02:00Z
 4,Alice Brown,alice@example.com,moderator,456.78,2024-01-01T10:03:00Z
 5,Charlie Wilson,charlie@example.com,user,567.89,2024-01-01T10:04:00Z 
+6,micheal Wilson,charlie@example.com,user,567.89,2024-01-01T10:04:00Z 
