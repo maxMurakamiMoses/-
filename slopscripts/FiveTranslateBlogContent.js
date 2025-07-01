@@ -2,6 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import fs from 'fs';
 import csv from 'csv-parser';
 import { createObjectCsvWriter } from 'csv-writer';
+import path from 'path';
 
 const ai = new GoogleGenAI({});
 
@@ -39,6 +40,25 @@ async function translateBlogContentToJapanese(blogContent, retryCount = 0) {
   }
 }
 
+async function loadLatestProgress(outputFile) {
+  const dir = path.dirname(outputFile);
+  const base = path.basename(outputFile);
+  const progressFiles = fs.readdirSync(dir)
+    .filter(f => f.startsWith(base + '-progress-') && f.endsWith('.csv'));
+  if (progressFiles.length === 0) return { processedResults: [], startIndex: 0 };
+  // Find the highest progress file
+  const max = Math.max(...progressFiles.map(f => parseInt(f.match(/progress-(\d+)\.csv$/)?.[1] || '0')));
+  const latestFile = path.join(dir, `${base}-progress-${max}.csv`);
+  // Read processed rows from latest progress file
+  return new Promise((resolve) => {
+    const processedResults = [];
+    fs.createReadStream(latestFile)
+      .pipe(csv())
+      .on('data', (data) => processedResults.push(data))
+      .on('end', () => resolve({ processedResults, startIndex: max }));
+  });
+}
+
 async function main() {
   const results = [];
   const inputFile = 'data/fourTranslateBasics.csv';
@@ -50,19 +70,19 @@ async function main() {
     .on('data', (data) => results.push(data))
     .on('end', async () => {
       console.log('Processing blogContent translations to Japanese...\n');
-      const processedResults = [];
-      let translatedCount = 0;
+      // Resume logic
+      const { processedResults, startIndex } = await loadLatestProgress(outputFile);
+      let translatedCount = processedResults.length;
       let emptyCount = 0;
-
       // Prepare headers for output CSV
       const headers = Object.keys(results[0] || {}).map(key => ({ id: key, title: key }));
-      headers.push({ id: 'blogContent_japanese', title: 'blogContent_japanese' });
-
-      for (let i = 0; i < results.length; i++) {
+      if (!headers.find(h => h.id === 'blogContent_japanese')) {
+        headers.push({ id: 'blogContent_japanese', title: 'blogContent_japanese' });
+      }
+      for (let i = startIndex; i < results.length; i++) {
         const row = results[i];
         const blogContent = row.blogContent || '';
         let blogContent_japanese = '';
-
         if (blogContent.trim() === '') {
           console.log(`Row ${i + 1}: blogContent is empty. Skipping translation.`);
           emptyCount++;
@@ -71,9 +91,7 @@ async function main() {
           blogContent_japanese = await translateBlogContentToJapanese(blogContent);
           translatedCount++;
         }
-
         processedResults.push({ ...row, blogContent_japanese });
-
         // Save progress every 10 rows
         if ((i + 1) % 10 === 0) {
           await writeCsvFile(processedResults, `${outputFile}-progress-${i + 1}.csv`, headers);
@@ -82,17 +100,20 @@ async function main() {
           await sleep(2000);
         }
       }
-
+      // Write final output
       await writeCsvFile(processedResults, outputFile, headers);
       console.log(`\n🎉 Finished processing all blogContent translations!`);
       console.log(`✅ Translated: ${translatedCount}, 🚫 Empty: ${emptyCount}`);
       console.log(`📁 Final CSV file saved as ${outputFile}`);
-
       // Clean up temporary progress files
-      for (let i = 10; i <= results.length; i += 10) {
-        const tempFile = `${outputFile}-progress-${i}.csv`;
-        if (fs.existsSync(tempFile)) {
-          fs.unlinkSync(tempFile);
+      const dir = path.dirname(outputFile);
+      const base = path.basename(outputFile);
+      const progressFiles = fs.readdirSync(dir)
+        .filter(f => f.startsWith(base + '-progress-') && f.endsWith('.csv'));
+      for (const tempFile of progressFiles) {
+        const tempPath = path.join(dir, tempFile);
+        if (fs.existsSync(tempPath)) {
+          fs.unlinkSync(tempPath);
         }
       }
       console.log(`✨ Cleanup complete!`);
