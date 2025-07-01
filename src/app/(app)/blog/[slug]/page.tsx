@@ -1,6 +1,6 @@
 import Author from "@/components/blog-author";
 import { CTA } from "@/components/sections/cta";
-import { getPost } from "@/lib/blog";
+import { getPostFromDB } from "@/lib/blog";
 import { siteConfig } from "@/lib/config";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -18,7 +18,13 @@ export async function generateMetadata({
   }>;
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  let post = await getPost(slug);
+  let post = await getPostFromDB(slug);
+  if (!post) {
+    return {
+      title: "Post Not Found",
+      description: "The requested blog post could not be found.",
+    };
+  }
   let {
     title,
     publishedAt: publishedTime,
@@ -58,7 +64,7 @@ export default async function Blog({
   }>;
 }) {
   const { slug } = await params;
-  let post = await getPost(slug);
+  let post = await getPostFromDB(slug);
   if (!post) {
     notFound();
   }
