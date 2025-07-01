@@ -36,6 +36,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large data files - exclude from deployment but keep in Git
-# Uncomment the line below if you want to exclude data files from deployment
-# /data/
