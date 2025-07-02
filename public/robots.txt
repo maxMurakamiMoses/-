@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onasamurai.com/sitemap.xml 

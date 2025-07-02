@@ -43,9 +43,19 @@ export function constructMetadata({
         },
       ],
       type: "website",
-      locale: "en_US",
+      locale: "ja_JP",
     },
-    icons: "/favicon.ico",
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+      creator: "@onasamurai",
+    },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
     metadataBase: new URL(siteConfig.url),
     authors: [
       {
@@ -53,6 +63,17 @@ export function constructMetadata({
         url: siteConfig.url,
       },
     ],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     ...props,
   };
 }
