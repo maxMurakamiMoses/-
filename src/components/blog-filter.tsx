@@ -26,12 +26,9 @@ export default function BlogFilter({ allPosts, categories }: BlogFilterProps) {
     return allPosts.filter((post) => post.category === selectedCategory);
   }, [allPosts, selectedCategory]);
 
-  // Separate filtered posts by feature
-  const mainFeature = filteredPosts.find((p: any) => p.feature === 'main_feature');
-  const stackFeatures = filteredPosts.filter((p: any) => p.feature === 'stack_feature').slice(0, 3);
-  const rest = filteredPosts.filter((p: any) =>
-    p.feature !== 'main_feature' && p.feature !== 'stack_feature'
-  );
+  // Separate posts by feature for the featured sections
+  const mainFeature = allPosts.find((p: any) => p.feature === 'main_feature');
+  const stackFeatures = allPosts.filter((p: any) => p.feature === 'stack_feature').slice(0, 3);
 
   return (
     <div className="min-h-[50vh] backdrop-blur-lg">
@@ -83,7 +80,7 @@ export default function BlogFilter({ allPosts, categories }: BlogFilterProps) {
         />
         
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {rest.map((data: any, idx: number) => (
+          {filteredPosts.map((data: any, idx: number) => (
             <BlogCard key={`${data.slug}-rest-${idx}`} data={data} />
           ))}
         </div>
