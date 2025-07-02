@@ -45,7 +45,7 @@ model BlogPost {
   subtitle_english String?
   keywords    String[]
   metadata    String?
-  category    String?
+  category    String? 
   content     String?
   content_english String?
   publishDate DateTime @default(now()) //used to show publish date on frontend
