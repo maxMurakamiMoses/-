@@ -33,7 +33,7 @@ export default function BlogFilter({ allPosts, categories }: BlogFilterProps) {
   return (
     <div className="min-h-[50vh] backdrop-blur-lg">
       <div className="mx-auto w-full max-w-6xl px-10">
-        <h2 className="text-2xl font-bold mb-6 pt-6">人気記事</h2>
+        <h2 className="text-2xl font-bold mb-6 pt-6">おすすめ記事</h2>
 
         {/* Show message if no posts found */}
         {filteredPosts.length === 0 && (
@@ -47,9 +47,9 @@ export default function BlogFilter({ allPosts, categories }: BlogFilterProps) {
         {/* Top section: 2 columns on lg+, stacked BlogCard on mobile */}
         {/* Mobile: all BlogCard stacked */}
         <div className="grid grid-cols-1 gap-8 mb-10 min-h-[500px] lg:hidden">
-          {mainFeature && <BlogCard key={`${mainFeature.slug}-main`} data={mainFeature} priority />}
+          {mainFeature && <BlogCard key={`${mainFeature.slug}-main`} data={mainFeature} priority showCategory={false} size="large" />}
           {stackFeatures.map((data: any, idx: number) => (
-            <BlogCard key={`${data.slug}-stack-${idx}`} data={data} priority={false} />
+            <BlogCard key={`${data.slug}-stack-${idx}`} data={data} priority={false} showCategory={false} />
           ))}
         </div>
         
@@ -58,13 +58,13 @@ export default function BlogFilter({ allPosts, categories }: BlogFilterProps) {
           {/* Large card on the left */}
           <div className="h-full min-h-[500px]">
             {mainFeature && (
-              <BlogCard key={`${mainFeature.slug}-main-lg`} data={mainFeature} priority />
+              <BlogCard key={`${mainFeature.slug}-main-lg`} data={mainFeature} priority showCategory={false} size="large" />
             )}
           </div>
           {/* Three stacked cards on the right */}
           <div className="flex flex-col">
             {stackFeatures.map((data: any, idx: number) => (
-              <BlogStackedTitleCard key={`${data.slug}-stack-lg-${idx}`} data={data} />
+              <BlogStackedTitleCard key={`${data.slug}-stack-lg-${idx}`} data={data} showCategory={false} />
             ))}
           </div>
         </div>
