@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --bun next dev",
-    "build": "bun run --bun next build",
+    "build": "prisma generate && bun run --bun next build",
     "start": "bun run --bun next start",
     "lint": "bun run --bun next lint",
-    "test-gemini": "bun run test-gemini.js"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@google/genai": "^1.7.0",
