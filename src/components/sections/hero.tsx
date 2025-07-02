@@ -70,7 +70,7 @@ export function Hero() {
             />
             </div>
           </div>
-          <div className="flex justify-center h-auto sm:h-[1000px] select-none -mt-40 md:-mt-52 lg:-mt-72">
+          <div className="flex flex-col items-center w-full -mt-32 sm:-mt-44 md:-mt-64 lg:-mt-88">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,26 +85,24 @@ export function Hero() {
                 className="w-full h-auto object-contain"
               />
             </motion.div>
+            <div className="flex gap-2 sm:gap-4 py-4 sm:py-8">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">⭐</span>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center justify-center gap-2 -mt-[250px] md:-mt-[400px] lg:-mt-56 xl:-mt-0">
-        <div className="flex gap-4 pb-4 pt-64">
-          {[...Array(5)].map((_, i) => (
-            <span key={i} className="text-6xl">⭐</span>
-          ))}
-        </div>
-      </div>
-      <div className="text-white text-3xl sm:text-5xl font-bold text-center mb-3">Over 15k 5-Star Ratings</div>
-      <div className="flex items-center justify-center gap-6 text-white text-xl font-semibold">
-        <div className="flex items-center gap-2">
-          <Icons.apple className="w-7 h-7" />
-          <span>4.7</span>
-        </div>
-        <span className="text-2xl">•</span>
-        <div className="flex items-center gap-2">
-          <Icons.google className="w-7 h-7" />
-          <span>4.5</span>
-        </div>
-      </div>
+          <div className="text-white text-3xl sm:text-5xl font-bold text-center mb-3">Over 15k 5-Star Ratings</div>
+          <div className="flex items-center justify-center gap-6 text-white text-xl font-semibold">
+            <div className="flex items-center gap-2">
+              <Icons.apple className="w-7 h-7" />
+              <span>4.7</span>
+            </div>
+            <span className="text-2xl">•</span>
+            <div className="flex items-center gap-2">
+              <Icons.google className="w-7 h-7" />
+              <span>4.5</span>
+            </div>
+          </div>
         </main>
       </Section>
     </>
