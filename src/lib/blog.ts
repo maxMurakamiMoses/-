@@ -201,3 +201,35 @@ export async function getAllAuthors() {
     return [];
   }
 }
+
+export async function getAllCategories() {
+  try {
+    const categories = await prisma.blogPost.groupBy({
+      by: ['category'],
+      where: {
+        isPublished: true,
+        category: {
+          not: null
+        }
+      },
+      _count: {
+        category: true
+      },
+      orderBy: {
+        _count: {
+          category: 'desc'
+        }
+      }
+    });
+
+    return categories
+      .filter(cat => cat.category && cat.category.trim() !== '')
+      .map(cat => ({
+        name: cat.category!,
+        count: cat._count.category
+      }));
+  } catch (error) {
+    console.error('Error fetching categories from database:', error);
+    return [];
+  }
+}

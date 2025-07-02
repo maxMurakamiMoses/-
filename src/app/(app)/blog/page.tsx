@@ -1,5 +1,5 @@
-import BlogCard, { BlogCardNoImage, BlogStackedTitleCard } from "@/components/blog-card";
-import { getAllPostsMetadataFromDB } from "@/lib/blog";
+import BlogFilter from "@/components/blog-filter";
+import { getAllPostsMetadataFromDB, getAllCategories } from "@/lib/blog";
 import { siteConfig } from "@/lib/config";
 import { constructMetadata } from "@/lib/utils";
 
@@ -16,13 +16,7 @@ export const metadata = constructMetadata({
 
 export default async function Blog() {
   const allPosts = await getAllPostsMetadataFromDB();
-
-  // Separate posts by feature
-  const mainFeature = allPosts.find((p: any) => p.feature === 'main_feature');
-  const stackFeatures = allPosts.filter((p: any) => p.feature === 'stack_feature').slice(0, 3);
-  const rest = allPosts.filter((p: any) =>
-    p.feature !== 'main_feature' && p.feature !== 'stack_feature'
-  );
+  const categories = await getAllCategories();
 
   return (
     <div className='bg-muted'>
@@ -55,41 +49,7 @@ export default async function Blog() {
           }),
         }}
       />
-      <div className="min-h-[50vh] backdrop-blur-lg">
-        <div className="mx-auto w-full max-w-6xl px-10">
-          <h2 className="text-2xl font-bold mb-6 pt-6">人気記事</h2>
-          {/* Top section: 2 columns on lg+, stacked BlogCard on mobile */}
-          {/* Mobile: all BlogCard stacked */}
-          <div className="grid grid-cols-1 gap-8 mb-10 min-h-[500px] lg:hidden">
-            {mainFeature && <BlogCard key={`${mainFeature.slug}-main`} data={mainFeature} priority />}
-            {stackFeatures.map((data: any, idx: number) => (
-              <BlogCard key={`${data.slug}-stack-${idx}`} data={data} priority={false} />
-            ))}
-          </div>
-          {/* Desktop: special layout */}
-          <div className="hidden lg:grid grid-cols-2 gap-8 mb-10 min-h-[500px]">
-            {/* Large card on the left */}
-            <div className="h-full min-h-[500px]">
-              {mainFeature && (
-                <BlogCard key={`${mainFeature.slug}-main-lg`} data={mainFeature} priority />
-              )}
-            </div>
-            {/* Three stacked cards on the right */}
-            <div className="flex flex-col">
-              {stackFeatures.map((data: any, idx: number) => (
-                <BlogStackedTitleCard key={`${data.slug}-stack-lg-${idx}`} data={data} />
-              ))}
-            </div>
-          </div>
-          {/* Standard 3-column grid for the rest */}
-          <h2 className="text-2xl font-bold mb-4">すべての記事</h2>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {rest.map((data: any, idx: number) => (
-              <BlogCard key={`${data.slug}-rest-${idx}`} data={data} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <BlogFilter allPosts={allPosts} categories={categories} />
     </div>
   );
 }
