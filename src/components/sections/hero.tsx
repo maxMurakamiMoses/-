@@ -41,7 +41,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5, ease: easeInOutCubic }}
-              className="text-7xl font-bold mb-4 tracking-tighter"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 tracking-tighter"
             >
               一生ポルノ卒業、<br />オナサムライと一緒に
             </motion.h1>
@@ -49,7 +49,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7, ease: easeInOutCubic }}
-              className="max-w-2xl mx-auto text-xl mb-8 font-medium text-balance"
+              className="max-w-2xl mx-auto text-lg md:text-xl mb-8 font-medium text-balance"
             >
               1万人以上の男たちが、ポルノをやめて新しい人生を始めてる
             </motion.p>
@@ -70,7 +70,7 @@ export function Hero() {
             />
             </div>
           </div>
-          <div className="flex justify-center h-auto sm:h-[1000px] select-none -mt-72">
+          <div className="flex justify-center h-auto sm:h-[1000px] select-none -mt-40 md:-mt-52 lg:-mt-72">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export function Hero() {
               />
             </motion.div>
           </div>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 -mt-[250px] md:-mt-[400px] lg:-mt-56 xl:-mt-0">
         <div className="flex gap-4 pb-4 pt-64">
           {[...Array(5)].map((_, i) => (
             <span key={i} className="text-6xl">⭐</span>
