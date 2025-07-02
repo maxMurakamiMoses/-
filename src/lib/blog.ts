@@ -17,6 +17,7 @@ export type Post = {
   slug: string;
   image?: string;
   authorImage?: string;
+  content?: string; // Processed HTML content from MDX
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -112,8 +113,20 @@ export async function getPostFromDB(slug: string) {
 
     const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(post.title)}`;
     
+    // Process the content through MDX pipeline if it exists
+    let processedContent = '';
+    if (post.content) {
+      try {
+        processedContent = await markdownToHTML(post.content);
+      } catch (error) {
+        console.error('Error processing MDX content:', error);
+        // Fallback to raw content if processing fails
+        processedContent = post.content;
+      }
+    }
+    
     return {
-      source: post.content || '',
+      source: processedContent,
       metadata: {
         title: post.title,
         publishedAt: post.publishDate.toISOString(),
@@ -141,8 +154,20 @@ export async function getAllPostsFromDB() {
       }
     });
 
-    return posts.map((post: any) => {
+    return await Promise.all(posts.map(async (post: any) => {
       const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(post.title)}`;
+      
+      // Process the content through MDX pipeline if it exists
+      let processedContent = '';
+      if (post.content) {
+        try {
+          processedContent = await markdownToHTML(post.content);
+        } catch (error) {
+          console.error('Error processing MDX content:', error);
+          // Fallback to raw content if processing fails
+          processedContent = post.content;
+        }
+      }
       
       return {
         title: post.title,
@@ -152,9 +177,9 @@ export async function getAllPostsFromDB() {
         image: post.image || defaultImage,
         authorImage: '/profilepic.jpg',
         slug: post.id,
-        content: post.content || '',
+        content: processedContent,
       };
-    });
+    }));
   } catch (error) {
     console.error('Error fetching posts from database:', error);
     return [];

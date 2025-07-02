@@ -72,9 +72,9 @@ export default async function Blog({
     <section id="blog" className="bg-black min-h-screen">
       <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8">
         <div className="pt-8">
-          <Link href="/blog" className="text-white hover:underline text-sm font-medium flex items-center gap-1">
+          <Link href="/blog" className="text-white hover:underline text-md font-medium flex items-center gap-1">
             <ChevronLeft className="w-4 h-4" />
-            Back to Blogs
+            ブログに戻る
           </Link>
         </div>
       </div>
