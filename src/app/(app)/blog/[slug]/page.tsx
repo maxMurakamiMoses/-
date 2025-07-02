@@ -138,6 +138,11 @@ export default async function Blog({
           </div>
         </Suspense>
         <div className="flex flex-col space-y-4">
+          {post.metadata.category && (
+            <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded w-fit">
+              {post.metadata.category}
+            </span>
+          )}
           <h1 className="title font-bold text-3xl md:text-5xl tracking-tighter text-white leading-tight">
             {post.metadata.title}
           </h1>

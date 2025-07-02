@@ -17,6 +17,7 @@ export type Post = {
   authorImage?: string;
   authorTwitter?: string;
   content?: string; // Processed HTML content from MDX
+  category?: string;
 };
 
 export async function markdownToHTML(markdown: string) {
@@ -78,6 +79,7 @@ export async function getPostFromDB(slug: string) {
         image: post.coverImage || defaultImage,
         authorImage: post.author?.photo || '/profilepic.jpg',
         authorTwitter: post.author?.twitter || 'anonymous',
+        category: post.category || '',
       },
       slug: post.id,
     };
@@ -114,6 +116,7 @@ export async function getAllPostsMetadataFromDB() {
         authorTwitter: post.author?.twitter || 'anonymous',
         slug: post.id,
         feature: post.feature,
+        category: post.category || '',
       };
     });
   } catch (error) {
@@ -162,6 +165,7 @@ export async function getAllPostsFromDB() {
         slug: post.id,
         content: processedContent,
         feature: post.feature,
+        category: post.category || '',
       };
     }));
   } catch (error) {

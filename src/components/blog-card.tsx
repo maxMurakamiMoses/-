@@ -23,6 +23,11 @@ export default function BlogCard({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
+        {data.category && (
+          <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded">
+            {data.category}
+          </span>
+        )}
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
@@ -45,6 +50,11 @@ export function BlogCardNoImage({ data }: { data: Post }) {
   return (
     <Link href={`/blog/${data.slug}`} className="block h-full">
       <div className="bg-background rounded-lg p-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02] h-full flex flex-col justify-center">
+        {data.category && (
+          <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded">
+            {data.category}
+          </span>
+        )}
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
@@ -65,6 +75,11 @@ export function BlogStackedTitleCard({ data }: { data: Post }) {
   return (
     <Link href={`/blog/${data.slug}`} className="group block h-full cursor-pointer select-none">
       <div className="p-4 transition-all duration-300 ease-in-out transform hover:scale-[1.02]">
+        {data.category && (
+          <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded">
+            {data.category}
+          </span>
+        )}
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
