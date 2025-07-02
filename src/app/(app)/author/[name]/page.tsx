@@ -26,22 +26,22 @@ export async function generateMetadata({
 
   return {
     title: `${author.name} - Author`,
-    description: author.bio,
+    description: author.bio || 'Author profile',
     openGraph: {
       title: `${author.name} - Author`,
-      description: author.bio,
+      description: author.bio || 'Author profile',
       type: "profile",
-      images: [
+      images: author.photo ? [
         {
           url: author.photo,
         },
-      ],
+      ] : [],
     },
     twitter: {
       card: "summary",
       title: `${author.name} - Author`,
-      description: author.bio,
-      images: [author.photo],
+      description: author.bio || 'Author profile',
+      images: author.photo ? [author.photo] : [],
     },
   };
 }
@@ -76,7 +76,7 @@ export default async function AuthorPage({
         {/* Author Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
           <Image
-            src={author.photo}
+            src={author.photo || '/profilepic.jpg'}
             alt={author.name}
             width={120}
             height={120}

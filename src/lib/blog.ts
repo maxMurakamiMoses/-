@@ -1,6 +1,4 @@
 import { siteConfig } from "@/lib/config";
-import fs from "fs";
-import path from "path";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
@@ -21,28 +19,6 @@ export type Post = {
   content?: string; // Processed HTML content from MDX
 };
 
-function parseFrontmatter(fileContent: string) {
-  let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-  let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match![1];
-  let content = fileContent.replace(frontmatterRegex, "").trim();
-  let frontMatterLines = frontMatterBlock.trim().split("\n");
-  let metadata: Partial<Post> = {};
-
-  frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(": ");
-    let value = valueArr.join(": ").trim();
-    value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
-    metadata[key.trim() as keyof Post] = value;
-  });
-
-  return { data: metadata as Post, content };
-}
-
-function getMDXFiles(dir: string) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
-}
-
 export async function markdownToHTML(markdown: string) {
   const p = await unified()
     .use(remarkParse)
@@ -60,43 +36,6 @@ export async function markdownToHTML(markdown: string) {
     .process(markdown);
 
   return p.toString();
-}
-
-export async function getPost(slug: string) {
-  const filePath = path.join("content", `${slug}.mdx`);
-  const source = fs.readFileSync(filePath, "utf-8");
-  const { content: rawContent, data: metadata } = parseFrontmatter(source);
-  const content = await markdownToHTML(rawContent);
-  const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(
-    metadata.title
-  )}`;
-  return {
-    source: content,
-    metadata: {
-      ...metadata,
-      image: metadata.image || defaultImage,
-    },
-    slug,
-  };
-}
-
-async function getAllPosts(dir: string) {
-  const mdxFiles = getMDXFiles(dir);
-  return Promise.all(
-    mdxFiles.map(async (file) => {
-      const slug = path.basename(file, path.extname(file));
-      const { metadata, source } = await getPost(slug);
-      return {
-        ...metadata,
-        slug,
-        source,
-      };
-    })
-  );
-}
-
-export async function getBlogPosts() {
-  return getAllPosts(path.join(process.cwd(), "content"));
 }
 
 export async function getPostFromDB(slug: string) {
@@ -202,20 +141,7 @@ export async function getAuthorByName(name: string) {
         name: name
       }
     });
-
-    if (!author) {
-      return null;
-    }
-
-    return {
-      id: author.id,
-      name: author.name,
-      twitter: author.twitter,
-      photo: author.photo || '/profilepic.jpg',
-      bio: author.bio || 'No bio available.',
-      createdAt: author.createdAt,
-      updatedAt: author.updatedAt,
-    };
+    return author;
   } catch (error) {
     console.error('Error fetching author from database:', error);
     return null;
@@ -225,23 +151,11 @@ export async function getAuthorByName(name: string) {
 export async function getAllAuthors() {
   try {
     const authors = await prisma.author.findMany({
-      include: {
-        _count: {
-          select: {
-            blogPosts: true
-          }
-        }
+      orderBy: {
+        name: 'asc'
       }
     });
-
-    return authors.map((author: any) => ({
-      id: author.id,
-      name: author.name,
-      twitter: author.twitter,
-      photo: author.photo || '/profilepic.jpg',
-      bio: author.bio,
-      postCount: author._count.blogPosts,
-    }));
+    return authors;
   } catch (error) {
     console.error('Error fetching authors from database:', error);
     return [];
