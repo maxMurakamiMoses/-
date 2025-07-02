@@ -18,8 +18,6 @@ export default function BlogCard({
             <Image
               className="rounded-t-lg object-cover border"
               src={data.image}
-              width={1200}
-              height={630}
               alt={data.title}
               priority={priority}
               fill
