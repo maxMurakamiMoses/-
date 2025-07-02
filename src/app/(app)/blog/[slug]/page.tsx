@@ -77,6 +77,8 @@ export default async function Blog({
     notFound();
   }
   
+  // Fallback for image
+  const imageUrl = post.metadata.image || "/introducing.png";
   const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
   
   return (
@@ -100,9 +102,7 @@ export default async function Blog({
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${siteConfig.url}${post.metadata.image}`
-              : `${siteConfig.url}/blog/${post.slug}/opengraph-image`,
+            image: imageUrl.startsWith("http") ? imageUrl : `${siteConfig.url}${imageUrl}`,
             url: canonicalUrl,
             author: {
               "@type": "Person",
@@ -127,17 +127,15 @@ export default async function Blog({
             <div className="mb-8 w-full h-64 bg-gray-200 animate-pulse rounded-lg"></div>
           }
         >
-          {post.metadata.image && (
-            <div className="mb-8">
-              <Image
-                width={1920}
-                height={1080}
-                src="/introducing.png"
-                alt="Blog post image"
-                className="w-full h-auto rounded-lg border shadow-md"
-              />
-            </div>
-          )}
+          <div className="mb-8">
+            <Image
+              width={1920}
+              height={1080}
+              src="/introducing.png"
+              alt="Blog post image"
+              className="w-full h-auto rounded-lg border shadow-md"
+            />
+          </div>
         </Suspense>
         <div className="flex flex-col space-y-4">
           <h1 className="title font-bold text-3xl md:text-5xl tracking-tighter text-white leading-tight">
