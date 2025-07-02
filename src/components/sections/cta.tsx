@@ -8,42 +8,37 @@ import Image from "next/image";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    name: "佐藤 翔太",
+    body: "誘惑に勝てるようになり、生活の質が上がりました。",
+    img: "https://avatar.vercel.sh/satou",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    name: "鈴木 美咲",
+    body: "無理なく続けられて、やめる決意が強まりました。",
+    img: "https://avatar.vercel.sh/suzuki",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    name: "高橋 大輔",
+    body: "助けがあって自信を持って前に進めています。",
+    img: "https://avatar.vercel.sh/takahashi",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
+    name: "中村 彩",
+    body: "生活リズムが整い、依存から脱却できました。",
+    img: "https://avatar.vercel.sh/nakamura",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
+    name: "山本 健",
+    body: "習慣が変わり、毎日が充実しています。",
+    img: "https://avatar.vercel.sh/yamamoto",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
+    name: "井上 花",
+    body: "機能がわかりやすく、続けやすいです。",
+    img: "https://avatar.vercel.sh/inoue",
   },
 ];
+
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
@@ -51,12 +46,10 @@ const secondRow = reviews.slice(reviews.length / 2);
 const ReviewCard = ({
   img,
   name,
-  username,
   body,
 }: {
   img: string;
   name: string;
-  username: string;
   body: string;
 }) => {
   return (
@@ -73,7 +66,6 @@ const ReviewCard = ({
           <figcaption className="text-sm font-medium text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium text-white/40">{username}</p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{body}</blockquote>
@@ -89,7 +81,7 @@ export function CTA() {
           <div className="absolute rotate-[35deg]">
             <Marquee pauseOnHover className="[--duration:20s]" repeat={3}>
               {firstRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
             <Marquee
@@ -99,12 +91,12 @@ export function CTA() {
               repeat={3}
             >
               {secondRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
             <Marquee pauseOnHover className="[--duration:20s]" repeat={3}>
               {firstRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
             <Marquee
@@ -114,12 +106,12 @@ export function CTA() {
               repeat={3}
             >
               {secondRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
             <Marquee pauseOnHover className="[--duration:20s]" repeat={3}>
               {firstRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
             <Marquee
@@ -129,7 +121,7 @@ export function CTA() {
               repeat={3}
             >
               {secondRow.map((review) => (
-                <ReviewCard key={review.username} {...review} />
+                <ReviewCard key={review.name} {...review} />
               ))}
             </Marquee>
           </div>

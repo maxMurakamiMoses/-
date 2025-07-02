@@ -30,7 +30,7 @@ const footerLinks: FooterLink[][] = [
     { id: 7, title: "サポート", url: "mailto:support@オナサムライ.com" },
     { id: 8, title: "プライバシーポリシー", url: "/privacy-policy" },
     { id: 9, title: "利用規約", url: "/terms" },
-    { id: 6, title: "返金を希望する", url: "#" },
+    { id: 6, title: "返金を希望する", url: "https://forms.gle/d5fUL28RaBfHJ91F9" },
   ],
   [
     { id: 10, title: "Instagram", url: "#" },
