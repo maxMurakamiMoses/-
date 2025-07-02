@@ -40,10 +40,10 @@ export default function Author({
           className="rounded-full aspect-square object-cover"
         />
         <div className="flex flex-col">
-          <p className="text-sm text-gray-500">Written by {name}</p>
+          <p className="text-sm text-muted-foreground">Written by {name}</p>
           <time
             dateTime={updatedAt}
-            className="text-sm font-light text-gray-400"
+            className="text-sm font-light text-muted-foreground/70"
           >
             Last updated {formatDate(updatedAt)}
           </time>
@@ -67,8 +67,8 @@ export default function Author({
           className={`rounded-full aspect-square object-cover transition-all group-hover:brightness-90 ${className}`}
         />
         <div className="flex flex-col">
-          <p className="font-semibold text-gray-700">{name}</p>
-          <p className="text-sm text-gray-500">Author</p>
+          <p className="font-semibold text-foreground">{name}</p>
+          <p className="text-sm text-muted-foreground">Author</p>
         </div>
       </Link>
     );
@@ -92,8 +92,8 @@ export default function Author({
         className={`rounded-full aspect-square object-cover transition-all group-hover:brightness-90 ${className}`}
       />
       <div className="flex flex-col">
-        <p className="font-semibold text-gray-700">{name}</p>
-        <p className="text-sm text-gray-500">@{cleanTwitterUsername}</p>
+        <p className="font-semibold text-foreground">{name}</p>
+        <p className="text-sm text-muted-foreground">@{cleanTwitterUsername}</p>
       </div>
     </Link>
   );

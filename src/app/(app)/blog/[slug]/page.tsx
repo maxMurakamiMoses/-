@@ -32,18 +32,26 @@ export async function generateMetadata({
     image,
   } = post.metadata;
 
+  const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
+
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title,
       description,
       type: "article",
       publishedTime,
-      url: `${siteConfig.url}/blog/${post.slug}`,
+      url: canonicalUrl,
       images: [
         {
           url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
         },
       ],
     },
@@ -68,6 +76,9 @@ export default async function Blog({
   if (!post) {
     notFound();
   }
+  
+  const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
+  
   return (
     <section id="blog" className="bg-black min-h-screen">
       <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8">
@@ -92,10 +103,20 @@ export default async function Blog({
             image: post.metadata.image
               ? `${siteConfig.url}${post.metadata.image}`
               : `${siteConfig.url}/blog/${post.slug}/opengraph-image`,
-            url: `${siteConfig.url}/blog/${post.slug}`,
+            url: canonicalUrl,
             author: {
               "@type": "Person",
               name: post.metadata.author,
+              url: `${siteConfig.url}/author/${encodeURIComponent(post.metadata.author)}`,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: siteConfig.name,
+              url: siteConfig.url,
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
             },
           }),
         }}
