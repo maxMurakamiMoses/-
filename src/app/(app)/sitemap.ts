@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { headers } from "next/headers";
-import { getAllPostsFromDB, getAllAuthors } from "@/lib/blog";
+import { getAllPostsMetadataFromDB, getAllAuthors } from "@/lib/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const headersList = await headers();
@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let protocol = "https";
 
   // Get all published blog posts
-  const posts = await getAllPostsFromDB();
+  const posts = await getAllPostsMetadataFromDB();
   
   // Get all authors
   const authors = await getAllAuthors();

@@ -1,5 +1,5 @@
 import BlogCard, { BlogCardNoImage, BlogStackedTitleCard } from "@/components/blog-card";
-import { getAllPostsFromDB } from "@/lib/blog";
+import { getAllPostsMetadataFromDB } from "@/lib/blog";
 import { siteConfig } from "@/lib/config";
 import { constructMetadata } from "@/lib/utils";
 
@@ -15,7 +15,7 @@ export const metadata = constructMetadata({
 });
 
 export default async function Blog() {
-  const allPosts = await getAllPostsFromDB();
+  const allPosts = await getAllPostsMetadataFromDB();
 
   // Separate posts by feature
   const mainFeature = allPosts.find((p: any) => p.feature === 'main_feature');

@@ -87,6 +87,41 @@ export async function getPostFromDB(slug: string) {
   }
 }
 
+export async function getAllPostsMetadataFromDB() {
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: {
+        isPublished: true
+      },
+      include: {
+        author: true
+      },
+      orderBy: {
+        publishDate: 'desc'
+      }
+    });
+
+    return posts.map((post: any) => {
+      const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(post.title)}`;
+      
+      return {
+        title: post.title,
+        publishedAt: post.publishDate.toISOString(),
+        summary: post.subtitle || '',
+        author: post.author?.name || 'Anonymous',
+        image: post.coverImage || defaultImage,
+        authorImage: post.author?.photo || '/profilepic.jpg',
+        authorTwitter: post.author?.twitter || 'anonymous',
+        slug: post.id,
+        feature: post.feature,
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching posts metadata from database:', error);
+    return [];
+  }
+}
+
 export async function getAllPostsFromDB() {
   try {
     const posts = await prisma.blogPost.findMany({
