@@ -52,12 +52,37 @@ export default function Author({
     );
   }
 
+  // If no Twitter username or it's 'anonymous', render as link to author page
+  if (!twitterUsername || twitterUsername === 'anonymous') {
+    return (
+      <Link
+        href={`/author/${encodeURIComponent(name)}`}
+        className={`group flex items-center space-x-3 ${className} hover:opacity-80 transition-opacity cursor-pointer`}
+      >
+        <Image
+          src={image}
+          alt={name}
+          width={40}
+          height={40}
+          className={`rounded-full aspect-square object-cover transition-all group-hover:brightness-90 ${className}`}
+        />
+        <div className="flex flex-col">
+          <p className="font-semibold text-gray-700">{name}</p>
+          <p className="text-sm text-gray-500">Author</p>
+        </div>
+      </Link>
+    );
+  }
+
+  // Clean the Twitter username by removing @ if it exists
+  const cleanTwitterUsername = twitterUsername.startsWith('@') 
+    ? twitterUsername.slice(1) 
+    : twitterUsername;
+
   return (
     <Link
-      href={`https://twitter.com/${twitterUsername}`}
-      className={`group flex items-center space-x-3 ${className}`}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/author/${encodeURIComponent(name)}`}
+      className={`group flex items-center space-x-3 ${className} hover:opacity-80 transition-opacity cursor-pointer`}
     >
       <Image
         src={image}
@@ -68,7 +93,7 @@ export default function Author({
       />
       <div className="flex flex-col">
         <p className="font-semibold text-gray-700">{name}</p>
-        <p className="text-sm text-gray-500">@{twitterUsername}</p>
+        <p className="text-sm text-gray-500">@{cleanTwitterUsername}</p>
       </div>
     </Link>
   );

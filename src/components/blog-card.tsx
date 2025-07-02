@@ -2,7 +2,6 @@ import { Post } from "@/lib/blog";
 import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 
 export default function BlogCard({
   data,
@@ -13,7 +12,7 @@ export default function BlogCard({
 }) {
   return (
     <Link href={`/blog/${data.slug}`} className="block group">
-      <div className={`bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-shadow duration-200${priority ? ' min-h-[470px]' : ''}`}>
+      <div className={`bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02]${priority ? ' min-h-[470px]' : ''}`}>
         {data.image && (
           <Image
             className="rounded-t-lg object-cover border"
@@ -33,9 +32,8 @@ export default function BlogCard({
             {formatDate(data.publishedAt)}
           </time>
         </p>
-        <h3 className="text-xl font-semibold mb-2 flex items-center transition-colors group-hover:text-primary group-hover:text-blue-500">
+        <h3 className="text-xl font-semibold mb-2 transition-colors group-hover:text-primary group-hover:text-blue-500">
           {data.title}
-          <ChevronRight className="ml-2 h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:text-blue-500" />
         </h3>
         <p className="text-foreground mb-4">{data.summary}</p>
       </div>
@@ -47,7 +45,7 @@ export default function BlogCard({
 export function BlogCardNoImage({ data }: { data: Post }) {
   return (
     <Link href={`/blog/${data.slug}`} className="block h-full">
-      <div className="bg-background rounded-lg p-4 border hover:shadow-sm transition-shadow duration-200 h-full flex flex-col justify-center">
+      <div className="bg-background rounded-lg p-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02] h-full flex flex-col justify-center">
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
@@ -63,11 +61,11 @@ export function BlogCardNoImage({ data }: { data: Post }) {
   );
 }
 
-// Stacked title card: no card background, just text, chevron appears on hover
+// Stacked title card: no card background, just text, expands on hover
 export function BlogStackedTitleCard({ data }: { data: Post }) {
   return (
     <Link href={`/blog/${data.slug}`} className="group block h-full cursor-pointer select-none">
-      <div className="p-4">
+      <div className="p-4 transition-all duration-300 ease-in-out transform hover:scale-[1.02]">
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
@@ -77,12 +75,11 @@ export function BlogStackedTitleCard({ data }: { data: Post }) {
           </time>
         </p>
         <div className="flex items-center">
-          <h3 className="text-xl font-semibold mb-2 transition-colors group-hover:text-blue-500 flex items-center">
+          <h3 className="text-xl font-semibold mb-2 transition-colors group-hover:text-blue-500">
             {data.title}
-            <ChevronRight className="ml-2 h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-200 group-hover:text-blue-500" />
           </h3>
         </div>
-        <p className="text-foreground">{data.summary}</p>
+        <p className="text-foreground mb-2">{data.summary}</p>
       </div>
     </Link>
   );

@@ -95,7 +95,7 @@ export default async function Blog({
             url: `${siteConfig.url}/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: siteConfig.name,
+              name: post.metadata.author,
             },
           }),
         }}
@@ -118,10 +118,15 @@ export default async function Blog({
             </div>
           )}
         </Suspense>
-        <div className="flex flex-col">
-          <h1 className="title font-medium text-3xl tracking-tighter text-white">
+        <div className="flex flex-col space-y-4">
+          <h1 className="title font-bold text-3xl md:text-5xl tracking-tighter text-white leading-tight">
             {post.metadata.title}
           </h1>
+          {post.metadata.summary && (
+            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl">
+              {post.metadata.summary}
+            </p>
+          )}
         </div>
         <div className="flex justify-between items-center text-sm text-white">
           <Suspense fallback={<p className="h-5" />}>
@@ -137,9 +142,9 @@ export default async function Blog({
         </div>
         <div className="flex items-center space-x-2">
           <Author
-            twitterUsername={post.metadata.author}
+            twitterUsername={post.metadata.authorTwitter || "anonymous"}
             name={post.metadata.author}
-            image={post.metadata.authorImage || "/author.jpg"}
+            image={post.metadata.authorImage || "/profilepic.jpg"}
             className="text-white"
           />
         </div>
