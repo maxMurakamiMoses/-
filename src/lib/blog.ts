@@ -126,6 +126,7 @@ export async function getAllPostsFromDB() {
         authorTwitter: post.author?.twitter || 'anonymous',
         slug: post.id,
         content: processedContent,
+        feature: post.feature,
       };
     }));
   } catch (error) {

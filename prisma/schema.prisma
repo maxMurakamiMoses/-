@@ -20,6 +20,12 @@ enum Role {
   super_admin
 }
 
+enum FeatureType {
+  not_featured
+  main_feature
+  stack_feature
+}
+
 model Author {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String
@@ -46,4 +52,5 @@ model BlogPost {
   isPublished Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  feature     FeatureType @default(not_featured)
 }

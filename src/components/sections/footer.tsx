@@ -36,7 +36,7 @@ const footerLinks: FooterLink[][] = [
     { id: 10, title: "Instagram", url: "#" },
     { id: 11, title: "TikTok", url: "#" },
     { id: 12, title: "X（Twitter）", url: "#" },
-    { id: 13, title: "アフィリエイト募集", url: "#" },
+    { id: 13, title: "アフィリエイト募集", url: "https://forms.gle/A7XNcsjbwFoa6mZ56" },
   ],
 ];
 
