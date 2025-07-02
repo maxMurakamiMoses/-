@@ -22,8 +22,8 @@ export function Hero() {
               className="mb-16 relative z-20"
               style={{ transformOrigin: "top" }}
             >
-              <div className="bg-blue-600 text-white text-xl font-bold p-4 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
-                <Icons.logo className="w-auto h-[40px]" />
+              <div className="bg-blue-600 text-white text-xl font-bold p-2 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
+                <Icons.logo className="w-16 h-16" />
               </div>
             </motion.div>
             <motion.div
