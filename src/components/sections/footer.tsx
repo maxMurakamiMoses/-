@@ -22,21 +22,21 @@ type FooterLink = { id: number; title: string; url: string };
 
 const footerLinks: FooterLink[][] = [
   [
-    { id: 1, title: "About", url: "/#hero" },
-    { id: 2, title: "Contact", url: "mailto:inquiry@オナサムライ.com" },
-    { id: 3, title: "Blog", url: "/blog" },
+    { id: 1, title: "オナサムライについて", url: "/#hero" },
+    { id: 2, title: "お問い合わせ", url: "mailto:inquiry@オナサムライ.com" },
+    { id: 3, title: "ブログ", url: "/blog" },
   ],
   [
-    { id: 7, title: "Support", url: "mailto:support@オナサムライ.com" },
-    { id: 8, title: "Privacy Policy", url: "/privacy-policy" },
-    { id: 9, title: "Terms & Conditions", url: "/terms" },
-    { id: 6, title: "Request a Refund", url: "#" },
+    { id: 7, title: "サポート", url: "mailto:support@オナサムライ.com" },
+    { id: 8, title: "プライバシーポリシー", url: "/privacy-policy" },
+    { id: 9, title: "利用規約", url: "/terms" },
+    { id: 6, title: "返金を希望する", url: "#" },
   ],
   [
     { id: 10, title: "Instagram", url: "#" },
     { id: 11, title: "TikTok", url: "#" },
-    { id: 12, title: "X (Twitter)", url: "#" },
-    { id: 13, title: "Affiliate Program", url: "#" },
+    { id: 12, title: "X（Twitter）", url: "#" },
+    { id: 13, title: "アフィリエイト募集", url: "#" },
   ],
 ];
 
@@ -54,20 +54,20 @@ export function Footer() {
             </h1>
           </a>
           <p className="tracking-tight text-white">
-          ポルノをやめるための、最強のポルノ依存対策アプリ。
+          ポルノ卒業の最強アプリ。
           </p>
           <p className="text-sm tracking-tight text-neutral-400 sm:text-center">
             All rights reserved.
           </p>
         </div>
-        <div className="pt-5 md:w-1/2">
-          <div className="flex items-start justify-between gap-x-3 lg:pl-10">
+        <div className="pt-5 md:w-2/3">
+          <div className="flex items-start justify-between gap-x-8 lg:pl-10">
             {footerLinks.map((column, columnIndex) => (
-              <ul key={columnIndex} className="flex flex-col items-start gap-y-2">
+              <ul key={columnIndex} className="flex flex-col items-start gap-y-3 min-w-[140px]">
                 {column.map((link) => (
                   <li
                     key={link.id}
-                    className="group inline-flex cursor-pointer items-center justify-start gap-1 text-[15px]/snug font-medium duration-200 text-neutral-400 hover:text-neutral-200"
+                    className="group inline-flex cursor-pointer items-center justify-start gap-1 text-[15px]/snug font-medium duration-200 text-neutral-400 hover:text-neutral-200 whitespace-nowrap"
                   >
                     <a href={link.url}>{link.title}</a>
                     <ChevronRightIcon className="h-4 w-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100" />

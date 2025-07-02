@@ -43,7 +43,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.5, ease: easeInOutCubic }}
               className="text-7xl font-bold mb-4 tracking-tighter"
             >
-              Quit Porn For Life <br />With オナサムライ
+              一生ポルノ卒業、<br />オナサムライと一緒に
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -51,7 +51,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.7, ease: easeInOutCubic }}
               className="max-w-2xl mx-auto text-xl mb-8 font-medium text-balance"
             >
-              Join 100,000+ men on a mission to quit porn forever and move on with their lives
+              1万人以上の男たちが、ポルノをやめて新しい人生を始めてる
             </motion.p>
             <div className="flex justify-center mb-16">
             <Image
