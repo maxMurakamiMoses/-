@@ -1,3 +1,0 @@
-# Exclude large data files from Vercel deployment
-data/
-*.csv 
