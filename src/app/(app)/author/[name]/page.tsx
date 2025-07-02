@@ -1,0 +1,110 @@
+import { getAuthorByName } from "@/lib/blog";
+import { formatDate } from "@/lib/utils";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ChevronLeft } from "lucide-react";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{
+    name: string;
+  }>;
+}): Promise<Metadata | undefined> {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const author = await getAuthorByName(decodedName);
+  
+  if (!author) {
+    return {
+      title: "Author Not Found",
+      description: "The requested author could not be found.",
+    };
+  }
+
+  return {
+    title: `${author.name} - Author`,
+    description: author.bio,
+    openGraph: {
+      title: `${author.name} - Author`,
+      description: author.bio,
+      type: "profile",
+      images: [
+        {
+          url: author.photo,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: `${author.name} - Author`,
+      description: author.bio,
+      images: [author.photo],
+    },
+  };
+}
+
+export default async function AuthorPage({
+  params,
+}: {
+  params: Promise<{
+    name: string;
+  }>;
+}) {
+  const { name } = await params;
+  const decodedName = decodeURIComponent(name);
+  const author = await getAuthorByName(decodedName);
+  
+  if (!author) {
+    notFound();
+  }
+
+  return (
+    <section className="bg-black min-h-screen">
+      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8">
+        <div className="pt-8">
+          <Link href="/blog" className="text-white hover:underline text-md font-medium flex items-center gap-1">
+            <ChevronLeft className="w-4 h-4" />
+            ブログに戻る
+          </Link>
+        </div>
+      </div>
+      
+      <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8 space-y-8 my-12 text-white">
+        {/* Author Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+          <Image
+            src={author.photo}
+            alt={author.name}
+            width={120}
+            height={120}
+            className="rounded-full aspect-square object-cover border-4 border-gray-800"
+          />
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
+              {author.name}
+            </h1>
+            {author.twitter && (
+              <p className="text-gray-300">
+                @{author.twitter.startsWith('@') ? author.twitter.slice(1) : author.twitter}
+              </p>
+            )}
+
+          </div>
+        </div>
+
+        {/* Author Bio */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-white">About</h2>
+          <p className="text-gray-300 leading-relaxed text-lg">
+            {author.bio}
+          </p>
+        </div>
+
+
+      </div>
+    </section>
+  );
+} 

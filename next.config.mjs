@@ -5,7 +5,8 @@ const nextConfig = {
       { hostname: "localhost" }, 
       { hostname: "randomuser.me" },
       { hostname: "cdn.magicui.design" },
-      { hostname: "avatar.vercel.sh" }
+      { hostname: "avatar.vercel.sh" },
+      { hostname: "xn--eckl7a9e5e6b.com" }
     ],
   },
 };

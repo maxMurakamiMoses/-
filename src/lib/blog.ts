@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import prisma from "./prisma";
 
 export type Post = {
   title: string;
@@ -16,6 +17,8 @@ export type Post = {
   slug: string;
   image?: string;
   authorImage?: string;
+  authorTwitter?: string;
+  content?: string; // Processed HTML content from MDX
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -94,4 +97,153 @@ async function getAllPosts(dir: string) {
 
 export async function getBlogPosts() {
   return getAllPosts(path.join(process.cwd(), "content"));
+}
+
+export async function getPostFromDB(slug: string) {
+  try {
+    const post = await prisma.blogPost.findFirst({
+      where: {
+        id: slug,
+        isPublished: true
+      },
+      include: {
+        author: true
+      }
+    });
+
+    if (!post) {
+      return null;
+    }
+
+    const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(post.title)}`;
+    
+    // Process the content through MDX pipeline if it exists
+    let processedContent = '';
+    if (post.content) {
+      try {
+        processedContent = await markdownToHTML(post.content);
+      } catch (error) {
+        console.error('Error processing MDX content:', error);
+        // Fallback to raw content if processing fails
+        processedContent = post.content;
+      }
+    }
+    
+    return {
+      source: processedContent,
+      metadata: {
+        title: post.title,
+        publishedAt: post.publishDate.toISOString(),
+        summary: post.subtitle || '',
+        author: post.author?.name || 'Anonymous',
+        image: post.coverImage || defaultImage,
+        authorImage: post.author?.photo || '/profilepic.jpg',
+        authorTwitter: post.author?.twitter || 'anonymous',
+      },
+      slug: post.id,
+    };
+  } catch (error) {
+    console.error('Error fetching post from database:', error);
+    return null;
+  }
+}
+
+export async function getAllPostsFromDB() {
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: {
+        isPublished: true
+      },
+      include: {
+        author: true
+      },
+      orderBy: {
+        publishDate: 'desc'
+      }
+    });
+
+    return await Promise.all(posts.map(async (post: any) => {
+      const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(post.title)}`;
+      
+      // Process the content through MDX pipeline if it exists
+      let processedContent = '';
+      if (post.content) {
+        try {
+          processedContent = await markdownToHTML(post.content);
+        } catch (error) {
+          console.error('Error processing MDX content:', error);
+          // Fallback to raw content if processing fails
+          processedContent = post.content;
+        }
+      }
+      
+      return {
+        title: post.title,
+        publishedAt: post.publishDate.toISOString(),
+        summary: post.subtitle || '',
+        author: post.author?.name || 'Anonymous',
+        image: post.coverImage || defaultImage,
+        authorImage: post.author?.photo || '/profilepic.jpg',
+        authorTwitter: post.author?.twitter || 'anonymous',
+        slug: post.id,
+        content: processedContent,
+      };
+    }));
+  } catch (error) {
+    console.error('Error fetching posts from database:', error);
+    return [];
+  }
+}
+
+export async function getAuthorByName(name: string) {
+  try {
+    const author = await prisma.author.findFirst({
+      where: {
+        name: name
+      }
+    });
+
+    if (!author) {
+      return null;
+    }
+
+    return {
+      id: author.id,
+      name: author.name,
+      twitter: author.twitter,
+      photo: author.photo || '/profilepic.jpg',
+      bio: author.bio || 'No bio available.',
+      createdAt: author.createdAt,
+      updatedAt: author.updatedAt,
+    };
+  } catch (error) {
+    console.error('Error fetching author from database:', error);
+    return null;
+  }
+}
+
+export async function getAllAuthors() {
+  try {
+    const authors = await prisma.author.findMany({
+      include: {
+        _count: {
+          select: {
+            blogPosts: true
+          }
+        }
+      }
+    });
+
+    return authors.map((author: any) => ({
+      id: author.id,
+      name: author.name,
+      twitter: author.twitter,
+      photo: author.photo || '/profilepic.jpg',
+      bio: author.bio,
+      postCount: author._count.blogPosts,
+    }));
+  } catch (error) {
+    console.error('Error fetching authors from database:', error);
+    return [];
+  }
 }

@@ -9,11 +9,31 @@ import {
 
 export const BLUR_FADE_DELAY = 0.15;
 
+// Get the base URL from environment or construct it
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+  
+  // For production, construct from Vercel environment
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  
+  // For local development
+  if (process.env.NODE_ENV === 'development') {
+    return 'http://localhost:3000';
+  }
+  
+  // Fallback - should be overridden in production
+  return 'https://your-domain.com';
+};
+
 export const siteConfig = {
   name: "オナサムライ",
   description: "一生ポルノをやめよう",
   cta: "Download",
-  url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  url: getBaseUrl(),
   keywords: [
     "AI Calendar",
     "Smart Scheduling",
