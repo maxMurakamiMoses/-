@@ -46,157 +46,50 @@ export const siteConfig = {
     discord: "https://discord.gg/calaiapp",
     github: "https://github.com/calaiapp",
     instagram: "https://instagram.com/calaiapp",
-  },
-  features: [
-    {
-      name: "AI-Powered Scheduling",
-      description:
-        "Intelligent scheduling that learns your preferences and optimizes your time.",
-      icon: <BrainIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Smart Time Blocking",
-      description:
-        "Automatically block time for focused work and personal activities.",
-      icon: <ClockIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Predictive Event Planning",
-      description:
-        "AI suggests optimal times for meetings and events based on your habits.",
-      icon: <CalendarIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Cloud Sync",
-      description: "Access your schedule across all devices in real-time.",
-      icon: <CloudIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Team Collaboration",
-      description: "Easily coordinate schedules with team members and clients.",
-      icon: <UsersIcon className="h-6 w-6" />,
-    },
-    {
-      name: "Smart Reminders",
-      description:
-        "Contextual notifications that adapt to your schedule and priorities.",
-      icon: <BellIcon className="h-6 w-6" />,
-    },
-  ],
-
+  },  
   
-  benefits: [
-    {
-      id: 1,
-      text: "Save hours each week with AI-optimized scheduling.",
-      image: "/Device-6.png",
-    },
-    {
-      id: 2,
-      text: "Reduce scheduling conflicts and double-bookings.",
-      image: "/Device-7.png",
-    },
-    {
-      id: 3,
-      text: "Improve work-life balance with smart time allocation.",
-      image: "/Device-8.png",
-    },
-    {
-      id: 4,
-      text: "Increase productivity with AI-driven time management insights.",
-      image: "/Device-1.png",
-    },
-  ],
-  pricing: [
-    {
-      name: "Basic",
-      href: "#",
-      price: "$0",
-      period: "month",
-      yearlyPrice: "$0",
-      features: [
-        "AI-powered scheduling (up to 10 events/month)",
-        "Basic time blocking",
-        "Cloud sync for 1 device",
-        "Email reminders",
-      ],
-      description: "Perfect for individual users",
-      buttonText: "Start Free",
-      isPopular: false,
-    },
-    {
-      name: "Pro",
-      href: "#",
-      price: "$12",
-      period: "month",
-      yearlyPrice: "$120",
-      features: [
-        "Unlimited AI-powered scheduling",
-        "Advanced time blocking and analysis",
-        "Cloud sync for unlimited devices",
-        "Smart notifications across all devices",
-        "Team collaboration features",
-      ],
-      description: "Ideal for professionals and small teams",
-      buttonText: "Upgrade to Pro",
-      isPopular: true,
-    },
-  ],
   faqs: [
     {
-      question: "How does クイッター help me quit porn?",
+      question: "オナサムライはどうやってポルノをやめる手助けをしてくれますか？",
       answer: (
         <span>
-          クイッター uses proven behavioral science and AI technology to help you break free from porn addiction. 
-          The app provides personalized strategies, progress tracking, and support to help you develop healthier habits 
-          and maintain your commitment to quitting.
+          オナサムライは実証された行動科学とAI技術を活用して、ポルノ依存からの脱却をサポートします。  
+          あなたに合わせた戦略や進捗の記録、サポート機能を提供し、健康的な習慣を身につけ、やめる決意を維持できるよう支援します。
         </span>
       ),
     },
     {
-      question: "How does the progress tracking work?",
+      question: "進捗の記録はどのように機能しますか？",
       answer: (
         <span>
-          クイッター tracks your daily progress, streaks, and milestones. The app celebrates your achievements 
-          and provides insights into your patterns to help you identify triggers and develop better coping strategies. 
-          Your data is kept private and secure.
+          オナサムライは日々の進捗や連続達成日数、重要な節目を記録します。  
+          あなたの成果を祝福し、パターンや引き金を分析して、より良い対処法を見つける手助けをします。  
+          もちろん、データはプライベートかつ安全に管理されています。
         </span>
       ),
     },
     {
-      question: "What if I relapse while using クイッター?",
+      question: "もしリラプス（再発）してしまったらどうなりますか？",
       answer: (
         <span>
-          Relapses are a normal part of the recovery process. クイッター doesn&apos;t judge or shame you - instead, 
-          it helps you learn from setbacks and get back on track. The app provides immediate support and 
-          strategies to help you continue your journey.
+          リラプスは回復の過程でよくあることです。オナサムライは責めたり恥をかかせたりせず、  
+          失敗から学び、再び軌道に戻るためのサポートを提供します。  
+          すぐに使えるサポートと対策が用意されているので、安心して続けられます。
         </span>
       ),
     },
     {
-      question: "Is my privacy protected when using クイッター?",
+      question: "オナサムライを使うとき、プライバシーは守られますか？",
       answer: (
         <span>
-          Absolutely. Your privacy and confidentiality are our top priorities. All your data is encrypted 
-          and stored securely. We never share your personal information, and you can use the app anonymously 
-          if you prefer.
+          もちろんです。プライバシーと機密性は最優先事項です。  
+          すべてのデータは暗号化され、安全に保管されています。  
+          個人情報が外部に共有されることはなく、匿名での利用も可能です。
         </span>
       ),
-    },
-    
-  ],
-  footer: [
-    {
-      id: 1,
-      menu: [
-        { href: "#", text: "Features" },
-        { href: "#", text: "Pricing" },
-        { href: "#", text: "About Us" },
-        { href: "#", text: "Blog" },
-        { href: "#", text: "Contact" },
-      ],
     },
   ],
+  
 };
 
 export type SiteConfig = typeof siteConfig;

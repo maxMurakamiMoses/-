@@ -38,10 +38,11 @@ export function FinalCTA() {
 
           {/* Right Column - Text and Button */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-6">
-              It&apos;s an awkward topic,{" "}<br />
-              <span className="text-gray-400">but not one to ignore.</span>
-            </h2>
+          <h2 className="text-2xl md:text-3xl font-semibold leading-tight mb-6">
+            少し話しにくい話題かもしれませんが、<br />
+            <span className="text-gray-400">無視すべきものではありません。</span>
+          </h2>
+
             <Button className="bg-blue-500 text-white hover:bg-blue-600 rounded-full px-8 py-3 text-lg font-medium">
               Download
             </Button>

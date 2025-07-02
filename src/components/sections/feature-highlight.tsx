@@ -145,6 +145,7 @@ export function FeatureHighlight() {
       ref={containerRef}
     >
       <div className="text-center mb-16 ">
+        <p className="text-sm text-primary text-balance font-mono font-semibold tracking-wider uppercase pb-4">使い方</p>
         <h2 className="text-4xl md:text-5xl font-bold mb-4 max-w-2xl mx-auto ">
         オナサムライがポルノ依存からの脱却をどうサポートするか
         </h2>

@@ -61,7 +61,7 @@ export function Footer() {
           </p>
         </div>
         <div className="pt-5 md:w-2/3">
-          <div className="flex items-start justify-between gap-x-8 lg:pl-10">
+          <div className="flex flex-col gap-y-8 md:flex-row md:items-start md:justify-between md:gap-x-8 lg:pl-10">
             {footerLinks.map((column, columnIndex) => (
               <ul key={columnIndex} className="flex flex-col items-start gap-y-3 min-w-[140px]">
                 {column.map((link) => (

@@ -12,7 +12,7 @@ export function FAQ() {
     <Section
       id="faq"
       title="FAQ"
-      subtitle="Frequently Asked Questions"
+      subtitle="よくある質問"
       className="container px-10"
     >
       <Accordion
