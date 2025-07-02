@@ -132,8 +132,8 @@ export default async function Blog({
               <Image
                 width={1920}
                 height={1080}
-                src={post.metadata.image}
-                alt={post.metadata.title}
+                src="/introducing.png"
+                alt="Blog post image"
                 className="w-full h-auto rounded-lg border shadow-md"
               />
             </div>
@@ -167,6 +167,7 @@ export default async function Blog({
             name={post.metadata.author}
             image={post.metadata.authorImage || "/profilepic.jpg"}
             className="text-white"
+            disableLink={true}
           />
         </div>
         <article

@@ -9,6 +9,7 @@ export default function Author({
   updatedAt,
   imageOnly,
   className = "",
+  disableLink = false,
 }: {
   name: string;
   image: string;
@@ -16,6 +17,7 @@ export default function Author({
   updatedAt?: string;
   imageOnly?: boolean;
   className?: string;
+  disableLink?: boolean;
 }) {
   if (imageOnly) {
     return (
@@ -54,6 +56,23 @@ export default function Author({
 
   // If no Twitter username or it's 'anonymous', render as link to author page
   if (!twitterUsername || twitterUsername === 'anonymous') {
+    if (disableLink) {
+      return (
+        <div className={`group flex items-center space-x-3 ${className}`}>
+          <Image
+            src={image}
+            alt={name}
+            width={40}
+            height={40}
+            className={`rounded-full aspect-square object-cover transition-all group-hover:brightness-90 ${className}`}
+          />
+          <div className="flex flex-col">
+            <p className="font-semibold text-foreground">{name}</p>
+            <p className="text-sm text-muted-foreground">Author</p>
+          </div>
+        </div>
+      );
+    }
     return (
       <Link
         href={`/author/${encodeURIComponent(name)}`}
@@ -78,6 +97,24 @@ export default function Author({
   const cleanTwitterUsername = twitterUsername.startsWith('@') 
     ? twitterUsername.slice(1) 
     : twitterUsername;
+
+  if (disableLink) {
+    return (
+      <div className={`group flex items-center space-x-3 ${className}`}>
+        <Image
+          src={image}
+          alt={name}
+          width={40}
+          height={40}
+          className={`rounded-full aspect-square object-cover transition-all group-hover:brightness-90 ${className}`}
+        />
+        <div className="flex flex-col">
+          <p className="font-semibold text-foreground">{name}</p>
+          <p className="text-sm text-muted-foreground">@{cleanTwitterUsername}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Link

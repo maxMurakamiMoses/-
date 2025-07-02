@@ -13,23 +13,16 @@ export default function BlogCard({
   return (
     <Link href={`/blog/${data.slug}`} className="block group">
       <div className={`bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02]${priority ? ' min-h-[470px]' : ''}`}>
-        {data.image && (
-          <div className="relative w-full h-[180px] mb-4">
-            <Image
-              className="rounded-t-lg object-cover border"
-              src={data.image}
-              alt={data.title}
-              priority={priority}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
-        )}
-        {!data.image && (
-          <div className="bg-gradient-to-br from-gray-200 to-gray-300 h-[180px] mb-4 rounded flex items-center justify-center">
-            <span className="text-gray-500 text-sm">No image</span>
-          </div>
-        )}
+        <div className="relative w-full h-[180px] mb-4">
+          <Image
+            className="rounded-t-lg object-cover border"
+            src="/introducing.png"
+            alt="Blog post image"
+            priority={priority}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
         <p className="mb-2">
           <time
             dateTime={data.publishedAt}
