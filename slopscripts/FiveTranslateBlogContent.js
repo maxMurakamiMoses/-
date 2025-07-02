@@ -61,7 +61,7 @@ async function loadLatestProgress(outputFile) {
 
 async function main() {
   const results = [];
-  const inputFile = 'data/fourTranslateBasics.csv';
+  const inputFile = 'data/fiveTranslateBlogContent.csv';
   const outputFile = 'data/fiveTranslateBlogContent.csv';
 
   // Read the CSV file
