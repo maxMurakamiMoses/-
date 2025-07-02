@@ -9,7 +9,7 @@
       "NODE_ENV": "production"
     }
   },
-  "ignoreCommand": "echo 'Skipping data files for deployment'",
+
   "buildCommand": "bun run build",
   "outputDirectory": ".next",
   "installCommand": "bun install",
