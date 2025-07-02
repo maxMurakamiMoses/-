@@ -93,27 +93,28 @@ function Feature({
 export function FeatureHighlight() {
   const features = [
     {
-      title: "Unlock your Dashboard",
+      title: "ダッシュボードを開く",
       description:
-        "Get a comprehensive overview of your journey with QUITTR. Monitor your streaks, visualize progress over time, and gain valuable insights to stay on track and achieve lasting freedom..",
+        "QUITTRであなたの歩みをひと目でチェック。連続記録や進捗をグラフで確認しながら、目標に向けてブレずに進めるようサポートします。",
       imageSrc: "/Device-2.png",
       direction: "rtl" as const,
     },
     {
-      title: "Track your Progress",
+      title: "進捗を記録・確認",
       description:
-        "Gain an in-depth look at your recovery journey. Explore detailed analytics, track your progress, identify key patterns, and use actionable insights to build stronger habits and maintain your momentum.",
+        "回復の過程を深く理解するための分析機能。習慣やパターンを可視化し、改善に向けた行動につなげていくことができます。",
       imageSrc: "/Device-3.png",
       direction: "ltr" as const,
     },
     {
-      title: "Reinforce your sobriety with Learn",
+      title: "「学ぶ」で断ち切る力を強化",
       description:
-        "Expand your knowledge and strengthen your journey with expert insights and practical strategies. Access engaging content, discover new perspectives, and apply what you learn to overcome challenges and achieve lasting growth. The porn addiction app helps you learn more about your condition and develop healthy coping skills.",
+        "専門的な知識と実践的な戦略で、理解を深めながら回復を後押し。役立つコンテンツを通して、自分の状態を知り、健全な対処スキルを身につけていきましょう。",
       imageSrc: "/Device-4.png",
       direction: "rtl" as const,
     },
   ];
+  
 
   const [activeFeature, setActiveFeature] = useState(-1);
   const containerRef = useRef<HTMLElement>(null);
@@ -144,9 +145,8 @@ export function FeatureHighlight() {
       ref={containerRef}
     >
       <div className="text-center mb-16 ">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          How オナサムライ Helps You <br /> Overcome
-          Porn Addiction
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 max-w-2xl mx-auto ">
+        オナサムライがポルノ依存からの脱却をどうサポートするか
         </h2>
        
       </div>

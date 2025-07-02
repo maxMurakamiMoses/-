@@ -6,60 +6,61 @@ import Image from "next/image";
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Manager",
+      name: "たけし",
+      role: "大学生",
       image: "/profilepic.jpg",
-      text: "This app has completely transformed how we handle our social media campaigns. The automation features save us hours every week."
+      text: "正直、人生変わりました。毎日ポルノを見てた自分が、今は集中力も自信も取り戻しています。"
     },
     {
-      name: "Mike Chen",
-      role: "Content Creator",
+      name: "ゆうた",
+      role: "営業職",
       image: "/profilepic.jpg",
-      text: "I've tried many social media tools, but this one stands out for its intuitive interface and powerful features. Highly recommended!"
+      text: "このアプリを使ってから、毎日のムダな時間がゼロに。仕事もプライベートも充実してきました。"
     },
     {
-      name: "Emily Rodriguez",
-      role: "Small Business Owner",
+      name: "しょうた",
+      role: "フリーランスエンジニア",
       image: "/profilepic.jpg",
-      text: "As a small business owner, I needed something simple yet effective. This app delivers exactly what I need without overwhelming complexity."
+      text: "長年悩んでたポルノ依存から抜け出せたのは、このアプリのおかげです。正直、もっと早く知りたかった。"
     },
     {
-      name: "David Kim",
-      role: "Digital Marketing Specialist",
+      name: "けんたろう",
+      role: "新卒会社員",
       image: "/profilepic.jpg",
-      text: "The analytics and insights provided by this platform have helped us make data-driven decisions that significantly improved our social media performance."
+      text: "リマインダー機能とコミュニティサポートが本当に助かる。1人じゃないって感じられるのがデカい。"
     },
     {
-      name: "Lisa Thompson",
-      role: "Influencer",
+      name: "たかひろ",
+      role: "起業家",
       image: "/profilepic.jpg",
-      text: "Managing multiple social media accounts used to be a nightmare. This app makes it seamless and actually enjoyable to use."
+      text: "毎朝の習慣をこのアプリで整えたら、毎日が前向きになった。成功者のマインドが身につく感じ。"
     },
     {
-      name: "Alex Morgan",
-      role: "Social Media Coordinator",
+      name: "りく",
+      role: "大学院生",
       image: "/profilepic.jpg",
-      text: "The scheduling feature alone has been a game-changer for our team. We can now plan content weeks in advance with ease."
+      text: "ポルノから離れたことで、集中力が爆上がり。論文もサクサク進むようになった。"
     },
     {
-      name: "Jessica Park",
-      role: "Brand Manager",
+      name: "だいち",
+      role: "パーソナルトレーナー",
       image: "/profilepic.jpg",
-      text: "The brand consistency features are incredible. We can maintain our voice across all platforms effortlessly while reaching new audiences."
+      text: "身体だけじゃなく、メンタルも鍛える時代。このアプリはそのための最高の武器。"
     },
     {
-      name: "Ryan Williams",
-      role: "Startup Founder",
+      name: "ゆうま",
+      role: "ゲーム開発者",
       image: "/profilepic.jpg",
-      text: "As a startup, we needed to maximize our social media impact with minimal resources. This tool has been our secret weapon for growth."
+      text: "スマホの誘惑に勝てなかった自分が、今は意志力強めの戦士に。習慣トラッカー機能が超使える。"
     },
     {
-      name: "Maria Garcia",
-      role: "Community Manager",
+      name: "こうすけ",
+      role: "高校教師",
       image: "/profilepic.jpg",
-      text: "The community engagement tools have revolutionized how we interact with our audience. Response times have improved dramatically."
+      text: "このアプリを使い始めてから、生徒に対しても堂々と接することができるようになりました。"
     }
   ];
+  
 
   const [currentGroup, setCurrentGroup] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -95,16 +96,18 @@ export function Testimonials() {
     <section className="bg-black py-20">
       <div className="max-w-6xl mx-auto px-10">
         <div className="text-left mb-8">
-          <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
-            Thousands of people vouch for our porn addiction app,<br /><span className="text-purple-700"> and there&apos;s a good reason why.</span>
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Peoples lives have been changed forever with the use of our app, leading to unspeakable amounts of gratitude.
-          </p>
+        <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
+  何千人ものユーザーがこのポルノ依存対策アプリを<br />
+  <span className="text-purple-700">おすすめするのには、ちゃんと理由があります。</span>
+</h2>
+<p className="mt-4 text-lg text-muted-foreground">
+  このアプリで人生が大きく変わったという声が続々と届いています。感謝の言葉が尽きないほどです。
+</p>
+
         </div>
         
         <div className="min-h-[400px] relative">
-          <div className={`columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 py-10 transition-opacity duration-300 ${
+          <div className={`columns-1 lg:columns-3 gap-4 space-y-4 py-10 transition-opacity duration-300 ${
             isTransitioning ? 'opacity-0' : 'opacity-100'
           }`}>
             {currentTestimonials.map((testimonial, index) => (
@@ -140,8 +143,8 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Tab Navigation - Fixed positioning */}
-        <div className="flex justify-center -mt-32">
+        {/* Tab Navigation - Responsive margin for different screen sizes */}
+        <div className="flex justify-center mt-8 lg:-mt-32">
           <div className="flex space-x-2">
             {Array.from({ length: totalGroups }, (_, index) => (
               <button
