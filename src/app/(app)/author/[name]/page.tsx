@@ -75,35 +75,27 @@ export default async function AuthorPage({
       <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8 space-y-8 my-12 text-white">
         {/* Author Header */}
         <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-          <Image
-            src={author.photo || '/profilepic.jpg'}
-            alt={author.name}
-            width={120}
-            height={120}
-            className="rounded-full aspect-square object-cover border-4 border-gray-800"
-          />
+          <div className="w-[300px] h-[400px] rounded-2xl overflow-hidden border-4 border-gray-800 bg-gray-900 flex-shrink-0">
+            <Image
+              src={author.photo || '/profilepic.jpg'}
+              alt={author.name}
+              width={400}
+              height={400}
+              className="object-cover w-full h-full"
+            />
+          </div>
           <div className="flex flex-col space-y-2">
             <h1 className="text-3xl md:text-4xl font-bold text-white">
               {author.name}
             </h1>
-            {author.twitter && (
-              <p className="text-gray-300">
-                @{author.twitter.startsWith('@') ? author.twitter.slice(1) : author.twitter}
+            <div className="space-y-1 mt-2">
+              <h2 className="text-xl font-semibold text-white">About</h2>
+              <p className="text-gray-300 leading-relaxed text-lg">
+                {author.bio}
               </p>
-            )}
-
+            </div>
           </div>
         </div>
-
-        {/* Author Bio */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-white">About</h2>
-          <p className="text-gray-300 leading-relaxed text-lg">
-            {author.bio}
-          </p>
-        </div>
-
-
       </div>
     </section>
   );
