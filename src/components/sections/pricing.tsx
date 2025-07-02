@@ -34,7 +34,7 @@ export function Pricing() {
       ref={ref}
     >
       <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto py-10">
-        {siteConfig.pricing.map((plan, index) => (
+        {/* {siteConfig.pricing.map((plan, index) => (
           <motion.div
             key={plan.name}
             style={{ opacity: opacities[index], y: yTransforms[index] }}
@@ -68,7 +68,7 @@ export function Pricing() {
               <ChevronRightIcon className="w-4 h-4 ml-1" />
             </Button>
           </motion.div>
-        ))}
+        ))} */}
       </div>
     </Section>
   );

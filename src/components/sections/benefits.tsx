@@ -37,7 +37,7 @@ export function Benefits() {
           className="hidden md:block flex-shrink-0 w-[calc(90%-1rem)] md:w-1/3 lg:w-1/3 xl:w-1/4 snap-start select-none px-4"
           aria-hidden="true"
         />
-        {siteConfig.benefits.map((benefit, index) => (
+        {/* {siteConfig.benefits.map((benefit, index) => (
           <div
             key={benefit.id}
             className="flex-shrink-0 w-[calc(90%-1rem)] md:w-1/3 lg:w-1/3 xl:w-1/4 snap-center md:snap-start select-none px-4"
@@ -57,7 +57,7 @@ export function Benefits() {
               </h2>
             </div>
           </div>
-        ))}
+        ))} */}
         {/* Add empty div for extra gap on desktop */}
         <div
           className="hidden md:block flex-shrink-0 w-1/3 lg:w-1/3 xl:w-1/4 snap-start"
