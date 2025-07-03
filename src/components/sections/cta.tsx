@@ -24,7 +24,7 @@ const reviews = [
   },
   {
     name: "中村 彩",
-    body: "生活リズムが整い、依存から脱却できました。",
+    body: "生活リズムが整い、依存から解放できました。",
     img: "https://avatar.vercel.sh/nakamura",
   },
   {

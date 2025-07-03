@@ -22,7 +22,7 @@ export function Hero() {
               className="mb-16 relative z-20"
               style={{ transformOrigin: "top" }}
             >
-              <div className="bg-blue-600 text-white text-xl font-bold p-2 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
+              <div className="bg-onasamurai text-white text-xl font-bold p-2 h-20 w-20 flex items-center justify-center rounded-3xl mx-auto shadow-md">
                 <Icons.logo className="w-16 h-16" />
               </div>
             </motion.div>
@@ -91,7 +91,7 @@ export function Hero() {
               ))}
             </div>
           </div>
-          <div className="text-white text-3xl sm:text-5xl font-bold text-center mb-3">Over 15k 5-Star Ratings</div>
+          <div className="text-white text-3xl sm:text-5xl font-bold text-center mb-3">5スターが一万個以上！</div>
           <div className="flex items-center justify-center gap-6 text-white text-xl font-semibold">
             <div className="flex items-center gap-2">
               <Icons.apple className="w-7 h-7" />
