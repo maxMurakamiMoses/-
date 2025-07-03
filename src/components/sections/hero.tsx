@@ -51,7 +51,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.7, ease: easeInOutCubic }}
               className="max-w-2xl mx-auto text-lg md:text-xl mb-8 font-medium text-balance"
             >
-              1万人以上の男たちが、ポルノをやめて新しい人生を始めてる
+              日本初オナ禁専用アプリ
             </motion.p>
             <div className="flex justify-center mb-16">
             <Image
@@ -85,6 +85,7 @@ export function Hero() {
                 className="w-full h-auto object-contain"
               />
             </motion.div>
+            {/*
             <div className="flex gap-2 sm:gap-4 py-4 sm:py-8">
               {[...Array(5)].map((_, i) => (
                 <span key={i} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">⭐</span>
@@ -102,6 +103,7 @@ export function Hero() {
               <Icons.google className="w-7 h-7" />
               <span>4.5</span>
             </div>
+            */}
           </div>
         </main>
       </Section>

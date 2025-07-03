@@ -24,7 +24,6 @@ export default function Home() {
       {/* <BentoGrid /> */}
       {/* <Benefits /> */}
       <Testimonials />
-      <FinalCTA />
       {/* <Pricing /> */}
       <FAQ />
       <CTA />
