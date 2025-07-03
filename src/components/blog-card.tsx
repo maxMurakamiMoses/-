@@ -17,7 +17,7 @@ export default function BlogCard({
   const isLarge = size === "large";
   
   return (
-    <Link href={`/blog/${data.slug}`} className="block group">
+    <Link href={`/blog/${encodeURIComponent(data.slug)}`} className="block group">
       <div className={`bg-background rounded-lg p-4 mb-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02]${priority ? ' min-h-[470px]' : ''}`}>
         <div className={`relative w-full mb-4 ${isLarge ? 'h-[280px]' : 'h-[180px]'}`}>
           <Image
@@ -60,7 +60,7 @@ export function BlogCardNoImage({
   showCategory?: boolean;
 }) {
   return (
-    <Link href={`/blog/${data.slug}`} className="block h-full">
+    <Link href={`/blog/${encodeURIComponent(data.slug)}`} className="block h-full">
       <div className="bg-background rounded-lg p-4 border hover:shadow-sm transition-all duration-300 ease-in-out transform hover:scale-[1.02] h-full flex flex-col justify-center">
         {showCategory && data.category && (
           <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded">
@@ -91,7 +91,7 @@ export function BlogStackedTitleCard({
   showCategory?: boolean;
 }) {
   return (
-    <Link href={`/blog/${data.slug}`} className="group block h-full cursor-pointer select-none">
+    <Link href={`/blog/${encodeURIComponent(data.slug)}`} className="group block h-full cursor-pointer select-none">
       <div className="p-4 transition-all duration-300 ease-in-out transform hover:scale-[1.02]">
         {showCategory && data.category && (
           <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold bg-blue-100 text-blue-700 rounded">

@@ -39,11 +39,11 @@ export async function markdownToHTML(markdown: string) {
   return p.toString();
 }
 
-export async function getPostFromDB(slug: string) {
+export async function getPostFromDB(title: string) {
   try {
     const post = await prisma.blogPost.findFirst({
       where: {
-        id: slug,
+        title: title,
         isPublished: true
       },
       include: {
@@ -81,7 +81,7 @@ export async function getPostFromDB(slug: string) {
         authorTwitter: post.author?.twitter || 'anonymous',
         category: post.category || '',
       },
-      slug: post.id,
+      slug: post.title,
     };
   } catch (error) {
     console.error('Error fetching post from database:', error);
@@ -114,7 +114,7 @@ export async function getAllPostsMetadataFromDB() {
         image: post.coverImage || defaultImage,
         authorImage: post.author?.photo || '/profilepic.jpg',
         authorTwitter: post.author?.twitter || 'anonymous',
-        slug: post.id,
+        slug: post.title,
         feature: post.feature,
         category: post.category || '',
       };
@@ -162,7 +162,7 @@ export async function getAllPostsFromDB() {
         image: post.coverImage || defaultImage,
         authorImage: post.author?.photo || '/profilepic.jpg',
         authorTwitter: post.author?.twitter || 'anonymous',
-        slug: post.id,
+        slug: post.title,
         content: processedContent,
         feature: post.feature,
         category: post.category || '',

@@ -18,7 +18,8 @@ export async function generateMetadata({
   }>;
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  let post = await getPostFromDB(slug);
+  const decodedTitle = decodeURIComponent(slug);
+  let post = await getPostFromDB(decodedTitle);
   if (!post) {
     return {
       title: "Post Not Found",
@@ -32,7 +33,7 @@ export async function generateMetadata({
     image,
   } = post.metadata;
 
-  const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
+  const canonicalUrl = `${siteConfig.url}/blog/${encodeURIComponent(post.slug)}`;
 
   return {
     title,
@@ -72,14 +73,15 @@ export default async function Blog({
   }>;
 }) {
   const { slug } = await params;
-  let post = await getPostFromDB(slug);
+  const decodedTitle = decodeURIComponent(slug);
+  let post = await getPostFromDB(decodedTitle);
   if (!post) {
     notFound();
   }
   
   // Fallback for image
   const imageUrl = post.metadata.image || "/introducing.png";
-  const canonicalUrl = `${siteConfig.url}/blog/${post.slug}`;
+  const canonicalUrl = `${siteConfig.url}/blog/${encodeURIComponent(post.slug)}`;
   
   return (
     <section id="blog" className="bg-black min-h-screen">
