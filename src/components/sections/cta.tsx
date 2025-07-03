@@ -13,7 +13,7 @@ const reviews = [
     img: "https://avatar.vercel.sh/satou",
   },
   {
-    name: "鈴木 美咲",
+    name: "鈴木 蓮",
     body: "無理なく続けられて、やめる決意が強まりました。",
     img: "https://avatar.vercel.sh/suzuki",
   },
@@ -23,7 +23,7 @@ const reviews = [
     img: "https://avatar.vercel.sh/takahashi",
   },
   {
-    name: "中村 彩",
+    name: "中村 駿",
     body: "生活リズムが整い、依存から解放できました。",
     img: "https://avatar.vercel.sh/nakamura",
   },
@@ -33,7 +33,7 @@ const reviews = [
     img: "https://avatar.vercel.sh/yamamoto",
   },
   {
-    name: "井上 花",
+    name: "井上 剛",
     body: "機能がわかりやすく、続けやすいです。",
     img: "https://avatar.vercel.sh/inoue",
   },
