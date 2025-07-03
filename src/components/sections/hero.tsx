@@ -51,7 +51,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.7, ease: easeInOutCubic }}
               className="max-w-2xl mx-auto text-lg md:text-xl mb-8 font-medium text-balance"
             >
-              日本初オナ禁専用アプリ
+              できる男が使っている日本初オナ禁専用アプリ
             </motion.p>
             <div className="flex justify-center mb-16">
             <Image
@@ -75,14 +75,14 @@ export function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1 }}
-              className="w-full max-w-8xl h-auto object-contain flex-shrink-0"
+              className="w-full max-w-8xl h-auto object-contain flex-shrink-0 flex justify-center items-center mt-64"
             >
               <Image
-                src="/landing.avif"
+                src="/landing.png"
                 alt="Landing"
-                width={1200}
-                height={800}
-                className="w-full h-auto object-contain"
+                width={1024}
+                height={300}
+                className=""
               />
             </motion.div>
             {/*
