@@ -98,7 +98,7 @@ export function Testimonials() {
         <div className="text-left mb-8">
         <h2 className="text-xl font-bold tracking-tight sm:text-2xl md:text-3xl">
   何千人ものユーザーがこのポルノ依存対策アプリを<br />
-  <span className="text-purple-700">おすすめするのには、ちゃんと理由があります。</span>
+  <span className="text-blue-500">おすすめするのには、ちゃんと理由があります。</span>
 </h2>
 <p className="mt-4 text-lg text-muted-foreground">
   このアプリで人生が大きく変わったという声が続々と届いています。感謝の言葉が尽きないほどです。
@@ -152,7 +152,7 @@ export function Testimonials() {
                 onClick={() => handleTabClick(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   currentGroup === index
-                    ? "bg-purple-700 scale-125"
+                    ? "bg-blue-500 scale-125"
                     : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonials group ${index + 1}`}

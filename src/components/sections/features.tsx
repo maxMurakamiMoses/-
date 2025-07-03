@@ -122,9 +122,9 @@ export function Features() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-16">
       <div className="mb-12 text-center">
-        <h2 className="text-4xl font-bold text-white mb-4">やっとやめる？.</h2>
+        <h2 className="text-4xl font-bold text-white mb-4">やっとやめる？</h2>
         <p className="text-xl text-white/80 max-w-3xl mx-auto">
-        あなたの目標や悩みに合わせて、ぴったりのプランを一緒に作るよ。成功できるように、ちゃんとサポートするからね。
+        あなたの目標や悩みに合わせたオナ禁プランを作成。ポルノ卒業を成功できるようにサポートするからね。
         </p>
       </div>
       <BentoGrid>

@@ -11,9 +11,8 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      title="FAQ"
       subtitle="よくある質問"
-      className="container px-10"
+      className="container px-10 text"
     >
       <Accordion
         type="single"
