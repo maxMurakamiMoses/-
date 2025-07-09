@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 export function Influencer() {
@@ -11,7 +12,6 @@ export function Influencer() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {/* Card 1 */}
           <div className="bg-blue-600 dark:bg-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-600">
             <div className="flex items-center space-x-5 mb-6">
               <Image
@@ -40,7 +40,6 @@ export function Influencer() {
             </p>
           </div>
 
-          {/* Card 2 */}
           <div className="bg-blue-600 dark:bg-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-600">
             <div className="flex items-center space-x-5 mb-6">
               <Image
@@ -68,8 +67,6 @@ export function Influencer() {
             &quot;より良くなりたい全ての男性に、このアプリは必要です。!&quot;
             </p>
           </div>
-
-          {/* Card 3 */}
           <div className="bg-blue-600 dark:bg-blue-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-600">
             <div className="flex items-center space-x-5 mb-6">
               <Image

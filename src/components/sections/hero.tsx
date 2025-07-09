@@ -54,20 +54,19 @@ export function Hero() {
               できる男が使っている日本初オナ禁専用アプリ
             </motion.p>
             <div className="flex justify-center mb-16">
+              <a 
+              href="https://apps.apple.com/us/app/%E3%82%AA%E3%83%8A%E3%82%B5%E3%83%A0%E3%83%A9%E3%82%A4/id6747996786"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
             <Image
               className="cursor-pointer rounded-md border border-neutral-900 dark:border-neutral-700"
-              src="https://cdn.magicui.design/playstore-download.png"
-              alt="Download on Google Play Store"
-              width={120}
-              height={40}
-            />
-            <Image
-              className="cursor-pointer rounded-md border border-neutral-900 dark:border-neutral-700"
-              src="https://cdn.magicui.design/ios-download.png"
+              src="./download-black.svg"
               alt="Download on Apple App Store"
               width={120}
               height={40}
             />
+            </a>
             </div>
           </div>
           <div className="flex flex-col items-center w-full -mt-32 sm:-mt-44 md:-mt-64 lg:-mt-88">
