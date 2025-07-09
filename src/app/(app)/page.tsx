@@ -18,7 +18,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Features />
-      <Influencer />
+      {/* <Influencer /> */}
       {/* <FeatureScroll /> */}
       <FeatureHighlight />
       {/* <BentoGrid /> */}
