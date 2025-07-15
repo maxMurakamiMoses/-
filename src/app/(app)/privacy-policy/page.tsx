@@ -26,14 +26,8 @@ export default function PrivacyPolicy() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">1. 収集する情報について</h2>
               <p className="text-gray-300 mb-2 sm:mb-4">
-                アカウント作成やサービスのご利用、サポートへのお問い合わせの際に、お客様から直接提供された情報を収集します。
+                サポートへのお問い合わせの際に、お客様から直接提供された情報を収集します。それ以外の情報は収集しません。
               </p>
-              <ul className="list-disc list-inside space-y-1 sm:space-y-2 ml-4 text-gray-300">
-                <li>アカウント情報（メールアドレス、ユーザー名、パスワード）</li>
-                <li>利用状況やアプリの操作データ</li>
-                <li>端末情報および解析データ</li>
-                <li>コミュニケーションの設定</li>
-              </ul>
             </div>
 
             <div>
@@ -51,20 +45,14 @@ export default function PrivacyPolicy() {
             <div>
               <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">3. 情報の共有について</h2>
               <p className="text-gray-300 mb-2 sm:mb-4">
-                お客様の同意なしに、個人情報を第三者に販売、取引、または譲渡することはありません。ただし、本ポリシーで説明する場合を除きます。
-              </p>
-              <p className="text-gray-300">
-                また、サービス運営や業務遂行、ユーザーサポートのために協力する業者と情報を共有することがあります。
+                お客様の同意なしに、個人情報を第三者に販売、取引、または譲渡することはありません。
               </p>
             </div>
 
             <div>
               <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">4. データの安全管理</h2>
               <p className="text-gray-300 mb-2 sm:mb-4">
-                お客様の個人情報を不正アクセスや改ざん、漏えい、破壊から守るため、適切な安全対策を実施しています。
-              </p>
-              <p className="text-gray-300">
-                しかし、インターネット経由の通信や電子的な保存方法において、完全な安全性を保証することはできません。
+                お客様の個人情報はセキュリティ特化したデータベースを使うなどの適切な安全対策を実施しています。
               </p>
             </div>
 
