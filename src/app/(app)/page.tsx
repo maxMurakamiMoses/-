@@ -12,10 +12,13 @@ import { Influencer } from "@/components/sections/influencer";
 import { Pricing } from "@/components/sections/pricing";
 import { Testimonials } from "@/components/sections/testimonials";
 
+//#This is to force a re-build.
+
 export default function Home() {
   return (
     <main className="relative">
       <Header />
+      
       <Hero />
       <Features />
       {/* <Influencer /> */}
